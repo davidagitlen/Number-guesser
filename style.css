@@ -1,0 +1,64 @@
+*{
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #656668;
+}
+
+header {
+	background-color: #404042;
+    height: 135px;
+    width: 100%;
+}
+
+main {
+	/*display: inline-table;*/
+	width: 100%;
+
+}
+/*Section*/
+
+section{
+	display: inline-block;
+	height: 700px;
+    width: 50%;
+}
+.left {
+	background-color: #ffffff;
+}
+
+.right {
+	background-color: lightgrey;
+    float: right
+}
+
+/*Article*/
+
+.set-range {
+	background-color: limegreen;
+	height: 115px;
+	width: 95%;
+	margin: 2%;
+}
+
+.challenger {
+	background-color: pink;
+	height: 330px;
+	width: 95%;
+	margin: 0% 2% 0% 2%;
+}
+
+.latest-score{
+	background-color: plum;
+    height: 200px;
+    width: 95%;
+    margin: 2%;
+}
+
+.winner {
+	background-color: tomato;
+	height:185px;
+	width: auto;
+	margin: 2% 4.4% 1.33% 4.4%;
+}
