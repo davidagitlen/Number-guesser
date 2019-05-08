@@ -29,6 +29,10 @@ label {
 	display: block;
 }
 
+input {
+	display: block;
+}
+
 .bold-text {
 	color: #DD1972;
 	font-weight: bold;
@@ -78,7 +82,7 @@ button.update-button {
 }
 
 fieldset.set-range{
-	display: inline;
+	display: block;
 	background-color: #ffffff;
 	border: none;
 }
