@@ -7,6 +7,10 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 
+main {
+	width: 100%;
+}
+
 header {
 	background-color: #404041;
 	height: 100px;
@@ -67,8 +71,33 @@ label {
 	display: inline-block;
 }
 
-.update-button {
+button.update-button {
 	background-color: #6E6E6E;
 	border-radius: 25px;
+    border: 0;
+}
+
+fieldset.set-range{
+	display: inline;
+	background-color: #ffffff;
+	border: none;
+}
+
+form.range-form {
+
+    height: 6em;
+    width: 95%;
+    background-color: #ffffff;
+    padding: 0;
+    margin: 15px;
+
+}
+
+section.left-section {
+	background-color: #d0d2d3;
+	display: flex;
+	flex-direction: column;
+    height: 700px;
+    width: 50%
 }
 
