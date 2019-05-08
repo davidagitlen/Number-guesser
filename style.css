@@ -2,4 +2,73 @@
 	box-sizing: border-box;
 }
 
+body {
+	background-color: #656668;
+	font-family: 'Open Sans', sans-serif;
+}
+
+header {
+	background-color: #404041;
+	height: 100px;
+	width: 100%;
+	text-align: center;
+}
+
+h1 {
+	font-size: 4em;
+	font-weight: lighter;
+	border-bottom: none;
+	margin: 0px 0px -20px 0px;
+}
+
+label {
+	display: block;
+}
+
+.bold-text {
+	color: #DD1972;
+	font-weight: bold;
+}
+
+.subtext-line {
+	color: #FFFFFF;
+	line-height: .1em;
+	text-align: center;
+	width: 34%;
+	border-bottom: 1px solid #FFFFFF;
+	margin-left: 33%;
+	margin-right: 33%;
+}
+
+.header-subtext {
+	background-color: #404041;
+	color: #FFFFFF;
+}
+
+.left-section {
+	background-color: #F7F7F7;
+}
+
+.challenger-form {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	color: #6E6E6E;
+}
+
+.min-range,
+.max-range {
+	color: #404041;
+	text-decoration: underline;
+}
+
+.challenger-1 {
+	border-color: #D0D2D3;
+	display: inline-block;
+}
+
+.update-button {
+	background-color: #6E6E6E;
+	border-radius: 25px;
+}
 

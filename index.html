@@ -3,12 +3,13 @@
 	<head>
 		<!-- look into theme-color meta tag for changing color of browser toolbar, could only find explciit documentation for specific browsers on specific platforms, may not be worth it -->
 		<title>Number Guesser</title>
-		<!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,600i,700,800" rel="stylesheet">
 	</head>
 <body>
 	<header>
 		<h1><span class="bold-text">Number</span>Guesser</h1>
-		<p>xUltimate Challenger Edition</p>
+		<p class="subtext-line"><span class="header-subtext">Ultimate Challenger Edition</span><p>
 	</header>
 	<main>
 		<!-- tried to find a set of good nesting elements that make sense for the application, but want to review/open to suggestions! -->
@@ -24,7 +25,7 @@
 			</form>
 			<form class="challenger-form">
 				<!-- ended up repeating class names in this section for things that will (I think) always update to the same number/value synchronously, also want to clarify about having name attributes on elements other than radio buttons, and whether or not the value of these should be same/different than class/ids -->
-				<p>The Current Range is <span class="min-range min-range-output">1</span> to <span class="max-range max-range-output">100</span></p>
+				<p class="challenger-top-text">The Current Range is <span class="min-range min-range-output">1</span> to <span class="max-range max-range-output">100</span></p>
 				<fieldset class="challenger-1">
 					<legend>Challenger 1</legend>
 					<label>Name<input type="text" name="challenger-1-name" class="challenger-1-name challenger-1-name-input"></label>
