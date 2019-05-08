@@ -1,38 +1,75 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- look into theme-color meta tag for changing color of browser toolbar, could only find explciit documentation for specific browsers on specific platforms, may not be worth it -->
 		<title>Number Guesser</title>
 		<link rel="stylesheet" type="text/css" href="styles.css">
 	</head>
 <body>
 	<header>
-		<h1>
-			<p>
-				
-			</p>
-		</h1>
+		<h1><span class="bold-text">Number</span>Guesser</h1>
+		<p>Ultimate Challenger Edition</p>
 	</header>
 	<main>
-		<section class="left">
-			<article class="set-range">
-			
-			</article>
-			<article class="challenger">
-			
-			</article>
-			<article class="latest-score">
-			
-			</article>
+		<!-- tried to find a set of good nesting elements that make sense for the application, but want to review/open to suggestions! -->
+		<section class="left-section">
+			<form class="range-form">
+				<fieldset class="set-range">
+					<!-- possible set legend display to none and use h2 tag instead to stay semantic and avoid the line? see https://stackoverflow.com/questions/4230375/whats-the-easiest-way-to-remove-fieldset-border-lines-->
+					<legend>Set Range</legend>
+					<label>Min Range<input type="number" name="min-number" class="min-range"></label>
+					<label>Max Range<input type="number" name="max-number" class="max-range"></label>
+					<button type="button" class="update-button">Update</button>
+				</fieldset>
+			</form>
+			<form class="challenger-form">
+				<!-- ended up repeating class names in this section for things that will (I think) always update to the same number/value synchronously, also want to clarify about having name attributes on elements other than radio buttons, and whether or not the value of these should be same/different than class/ids -->
+				<p>The Current Range is <span class="min-range">1</span> to <span class="max-range">100</span></p>
+				<fieldset class="challenger-1">
+					<legend>Challenger 1</legend>
+					<label>Name<input type="text" name="challenger-1-name" class="challenger-1-name"></label>
+					<label>Guess<input type="number" name="challenger-1-guess" class="challenger-1-guess"></label>
+				</fieldset> 
+				<fieldset class="challenger-2">
+					<legend>Challenger 2</legend>
+					<label>Name<input type="text" name= "challenger-2-name" class="challenger-2-name"></label>
+					<label>Guess<input type="number" name="challenger-2-guess" class="challenger-2-guess"></label>
+				</fieldset>
+				<!-- wanted to contain the buttons just to be safe, but may not be necessary -->
+				<div class="button-group">
+					<button type="button" class="submit-guess-button">Submit Guess</button>
+					<button type="button" class="reset-game-button">Reset Game</button>
+					<button type="button" class="clear-game-button">Clear Game</button>
+				</div>
+			</form>
+			<form class="score-form">
+				<fieldset class="score-results">
+					<!-- not sure how to arrange this section or which element should go where, not sure about the output element, but it seemed right at the time... Also considered inserting a span inside of an empty paragraph for the first line, but, again, not sure, also, class names for the last paragraphs are a little unwieldy but tried to make them as clear as possible-->
+					<legend>Latest Score</legend>
+						<div>
+							<p class="challenger-1-name"></p>
+							<p>current guess</p>
+							<output class="challenger-1-guess" name="challenger-1-guess"></output>
+							<p class="challenger-1-result-message"></p>
+						</div>
+						<div>
+							<p class="challenger-2-name"></p>
+							<p>current guess</p>
+							<output class="challenger-2-guess" name="challenger-2-guess"></output>
+							<p class="challenger-2-result-message"></p>
+						</div>
+				</fieldset>
+			</form>
 		</section>
-		<section class="right">
+		<section class="right-section">
+			<!-- brain starting to melt, could use some help thinking out how to structure these, whether they should be laid out in advance, or whether we are making a template for cards that will only appear over a blank field at the end of a match... should there be any text inside to start at all (things that will remain the same) and have the names/numbers filled dynamically, or should we try to make some js that will dynamically generate the whole shebang? put in placeholder paragraphs/spans for the former option -->
 			<article class="winner">
-			
-			</article>
-			<article class="winner">
-			
-			</article>
-			<article class="winner">
-			
+				<p><span class="challenger-1-name"></span> vs <span class="challenger-2-name"></span></p>
+				<output class="match-winner-name">
+					<p>WINNER</p>
+				</output>
+				<p><span class="winner-number-of-guesses"></span>GUESSES<p>
+				<p><span class="winner-time-spent"></span>MINUTES</p>
 			</article>
 		</section>
 	</main>
