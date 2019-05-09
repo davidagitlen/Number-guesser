@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<!-- look into theme-color meta tag for changing color of browser toolbar, could only find explciit documentation for specific browsers on specific platforms, may not be worth it -->
 		<title>Number Guesser</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,600i,700,800" rel="stylesheet">
@@ -11,59 +10,75 @@
 		<h1><span class="bold-text">Number</span>Guesser</h1>
 		<p class="subtext-line"><span class="header-subtext">Ultimate Challenger Edition</span><p>
 	</header>
-	<main>
-		<!-- tried to find a set of good nesting elements that make sense for the application, but want to review/open to suggestions! -->
+	<main class="content">
 		<section class="left-section">
-			<form class="range-form">
-				<fieldset class="set-range">
-					<!-- possible set legend display to none and use h2 tag instead to stay semantic and avoid the line? see https://stackoverflow.com/questions/4230375/whats-the-easiest-way-to-remove-fieldset-border-lines-->
-					<legend>Set Range</legend>
-					<label>Min Range<input type="number" name="min-number" class="min-range min-range-input"></label>
-					<label>Max Range<input type="number" name="max-number" class="max-range max-range-input"></label>
-					<button type="button" class="update-button">Update</button>
-				</fieldset>
-			</form>
-			<form class="challenger-form">
-				<!-- ended up repeating class names in this section for things that will (I think) always update to the same number/value synchronously, also want to clarify about having name attributes on elements other than radio buttons, and whether or not the value of these should be same/different than class/ids -->
-				<p class="challenger-top-text">The Current Range is <span class="min-range min-range-output">1</span> to <span class="max-range max-range-output">100</span></p>
-				<fieldset class="challenger-1">
-					<legend>Challenger 1</legend>
-					<label>Name<input type="text" name="challenger-1-name" class="challenger-1-name challenger-1-name-input"></label>
-					<label>Guess<input type="number" name="challenger-1-guess" class="challenger-1-guess challenger-1-name-input"></label>
-				</fieldset> 
-				<fieldset class="challenger-2">
-					<legend>Challenger 2</legend>
-					<label>Name<input type="text" name= "challenger-2-name" class="challenger-2-name challenger-2-name-input"></label>
-					<label>Guess<input type="number" name="challenger-2-guess" class="challenger-2-guess challenger-2-name-input"></label>
-				</fieldset>
-				<!-- wanted to contain the buttons just to be safe, but may not be necessary -->
+			<article class="range-form">
+				<p class="set-range">Set Range</p>
+				<div class="range-form-container">
+						<form class="min-range-form">
+							<p class="min-range-text">Min Range</p>
+							<input type="number" name="min-number" class="min-range min-range-input" id="min-input-field">
+						</form>
+						<form class="max-range-form">
+							<p class="max-range-text">Max Range</p>
+							<input type="number" name="max-number" class="max-range max-range-input" id="max-input-field">
+						</form>
+						<button type="button" class="update-button" id="update-button">Update</button>
+					</div>
+			<!-- 	</div> -->
+			</article>
+			<article class="challenger-form">
+				<p class="challenger-top-text">The Current Range is <span class="min-range min-range-output" id="min-output">1</span> to <span class="max-range max-range-output" id="max-output">100</span></p>
+				<div class="challenger-1">
+					<p class="challenger-1-text">Challenger 1</p>
+					<form class="challenger-1-form">
+						<label class="label-1-name">Name<input type="text" name="challenger-1-name" class="challenger-1-name challenger-1-name-input"></label>
+						<label class="label-1-guess">Guess<input type="number" name="challenger-1-guess" class="challenger-1-guess challenger-1-name-input"></label>
+						<p class="alert warning-1"></p>
+					</form>
+				</div> 
+				<div class="challenger-2">
+					<p class="challenger-2-text">Challenger 2</p>
+					<form class="challenger-2-form">
+						<label class="label-2-name">Name<input type="text" name= "challenger-2-name" class="challenger-2-name challenger-2-name-input"></label>
+						<label class="label-2-guess">Guess<input type="number" name="challenger-2-guess" class="challenger-2-guess challenger-2-name-input"></label>
+						<p class="alert warning-2"></p>
+					</form>
+				</div>
 				<div class="button-group">
 					<button type="button" class="submit-guess-button">Submit Guess</button>
 					<button type="button" class="reset-game-button">Reset Game</button>
 					<button type="button" class="clear-game-button">Clear Game</button>
 				</div>
-			</form>
-			<form class="score-form">
-				<fieldset class="score-results">
-					<!-- not sure how to arrange this section or which element should go where, not sure about the output element, but it seemed right at the time... Also considered inserting a span inside of an empty paragraph for the first line, but, again, not sure, also, class names for the last paragraphs are a little unwieldy but tried to make them as clear as possible-->
-					<legend>Latest Score</legend>
-						<div>
-							<p class="challenger-1-name"></p>
-							<p>current guess</p>
-							<output class="challenger-1-guess" name="challenger-1-guess challenger-1-guess-output"></output>
-							<p class="challenger-1-result-message"></p>
+			</article>
+			<article class="score-form">
+				<div class="score-results">
+					<p class="latest-score-text">Latest Score</p>
+						<div class="latest-score-container">
+							<div class="current-guess">
+								<p class="challenger-1-name">Challenger 1 Name</p>
+								<p class="current-guess-text">current guess</p>
+							</div>
+							<div class="challenger-output-container">
+								<output class="challenger-1-guess" name="challenger-1-guess challenger-1-guess-output">0</output>
+							</div>
+							<p class="challenger-1-result-message">High/Low</p>
 						</div>
-						<div>
-							<p class="challenger-2-name"></p>
-							<p>current guess</p>
-							<output class="challenger-2-guess" name="challenger-2-guess challenger-2-guess-output"></output>
-							<p class="challenger-2-result-message"></p>
+						<div class="latest-score-container">
+							<div class="challenger-output-container">
+								<p class="challenger-2-name">Challenger 2 Name</p>
+								<p class="current-guess-text">current guess</p>
+							</div >
+							<div class="challenger-output-container">
+								<output class="challenger-2-guess" name="challenger-2-guess challenger-2-guess-output">0</output>
+							</div>
+								<p class="challenger-2-result-message">High/Low</p>
 						</div>
-				</fieldset>
-			</form>
+					</div>
+				</div>
+			</article>
 		</section>
-		<section class="right-section">
-			<!-- brain starting to melt, could use some help thinking out how to structure these, whether they should be laid out in advance, or whether we are making a template for cards that will only appear over a blank field at the end of a match... should there be any text inside to start at all (things that will remain the same) and have the names/numbers filled dynamically, or should we try to make some js that will dynamically generate the whole shebang? put in placeholder paragraphs/spans for the former option, also need to put in a close button in the lower right corner-->
+		<!-- <section class="right-section">
 			<article class="winner">
 				<p><span class="challenger-1-name challenger-1-name-output"></span> vs <span class="challenger-2-name challenger-2-name-output"></span></p>
 				<output class="match-winner-name">
@@ -72,7 +87,22 @@
 				<p><span class="winner-number-of-guesses"></span>GUESSES<p>
 				<p><span class="winner-time-spent"></span>MINUTES</p>
 			</article>
-		</section>
+		</section> -->
 	</main>
 </body>
+<script>
+	var updateButton = document.querySelector("#update-button");
+        var minInput = document.querySelector("#min-input-field");
+        var minOutput = document.querySelector("#min-output");
+        var maxInput = document.querySelector("#max-input-field");
+        var maxOutput = document.querySelector("#max-output");
+        updateButton.addEventListener("click", function (){
+            var newMinOutput = minInput.value;
+            minOutput.innerText = newMinOutput;
+            var newMaxOutput = maxInput.value;
+            maxOutput.innerText = newMaxOutput;
+        });
+
+</script>
+
 </html>
