@@ -2,20 +2,149 @@
 	box-sizing: border-box;
 }
 
+article.challenger-form {
+
+    display: flex;
+    background: #ffffff;
+    flex-direction: column;
+    padding: 0% 0% 0% 2%;
+    width: 95%;
+}
+
+article.range-form {
+  	position: relative;
+    background: #ffffff;
+    width: 95%;
+    height: 115px;
+}
+
+article.score-form{
+
+	display: flex;
+    background-color: #ffffff;
+    width: 95%;
+}
+
 body {
 	background-color: #656668;
 	font-family: 'Open Sans', sans-serif;
 }
 
-main {
-	width: 100%;
+button.clear-game-button{
+	background-color: #6E6E6E;
+    border-radius: 25px;
+    border: 0;
+    width: 30%;
+    height: 40px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 500;
 }
 
-header {
-	background-color: #404041;
-	height: 100px;
-	width: 100%;
-	text-align: center;
+button.reset-game-button{
+	background-color: #6E6E6E;
+    border-radius: 25px;
+    border: 0;
+    width: 30%;
+    height: 40px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+button.submit-guess-button{
+	background-color: #6E6E6E;
+    border-radius: 25px;
+    border: 0;
+    width: 30%;
+    height: 40px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+button.update-button {
+	background-color: #6E6E6E;
+    border-radius: 25px;
+    border: 0;
+    width: 20%;
+    height: 40px;
+    color: #ffffff;
+    margin-top: 8%;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+div.button-group{
+	display: flex;
+    justify-content: space-around;
+}
+
+div.challenger-1 {
+    display: flex;
+    flex-direction: column;
+    border-color: #D0D2D3;
+    width: 85%;
+    margin: 10% 4% 0 0;
+}
+
+div.challenger-2 {
+	display: flex;
+    flex-direction: column;
+    border-color: #D0D2D3;
+    width: 85%;
+    margin: 4% 4% 0 0;
+}
+
+div.button-group {
+	display: flex;
+    justify-content: space-around;
+    margin: 3% 3% 3% 0%;
+}
+
+div.latest-score-container{
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 0% 0% 0% 0%;
+}
+
+div.range-form-container{
+	display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    background: #ffffff;
+    padding: 0% 3% 3% 3%;
+    margin-top: 3%;
+    width: 100%;
+}
+
+div.score-results{
+	display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+div.set-range {
+    display: flex;
+}
+
+form{
+	display: flex;
+    width: 114%;
+}
+
+form.min-range-form{
+	display: flex;
+    flex-direction: column;
+    width: 23%;
+}
+
+form.max-range-form{
+	display: flex;
+    flex-direction: column;
+    width: 23%;
 }
 
 h1 {
@@ -25,12 +154,153 @@ h1 {
 	margin: 0px 0px -20px 0px;
 }
 
-label {
-	display: block;
+header {
+	background-color: #404041;
+	height: 100px;
+	width: 100%;
+	text-align: center;
+
 }
 
-input {
-	display: block;
+input{
+	height: 40px;
+}
+
+input.min-range {
+	height: 40px;
+    width: 130%;
+}
+
+input.max-range{
+	height: 40px;
+    width: 130%;
+}
+
+label {
+	display: flex;
+	flex-direction: column;
+}
+
+label.label-1-guess{
+	display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: 1% 0% 0% 0%;
+    font-size: 19px;
+    font-weight: 300;
+}
+
+label.label-1-name{
+	display: flex;
+    flex-direction: column;
+    width: 67%;
+    margin: 1% 3% 0% 0%;
+    font-size: 19px;
+    font-weight: 300;
+}
+
+label.label-2-guess{
+	display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: 1% 0% 0% 0%;
+    font-size: 19px;
+    font-weight: 300;
+}
+
+label.label-2-name{
+	display: flex;
+    flex-direction: column;
+    width: 67%;
+    margin: 1% 3% 0% 0%;
+    font-size: 19px;
+    font-weight: 300;
+}
+
+main {
+	width: 100%;
+}
+
+output {
+	font-size: 55px;
+	font-weight: 700;
+    color: #dd1972;
+}
+
+p.challenger-1-name{
+	margin: 0% 0% 0% 0%;
+}
+
+p.challenger-2-name{
+	margin: 0% 0% 0% 0%;
+}
+
+p.challenger-1-text{
+    margin: 0;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+p.challenger-2-text {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+p.challenger-top-text {
+    position: absolute;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 200;
+}
+
+p.challenger-1-result-message{
+	margin: 0% 0% 0% 0%;
+
+}
+
+p.challenger-2-result-message{
+	margin: 0% 0% 0% 0%;
+}
+
+p.current-guess-text{
+    margin: 0% 0% 0% 0%;
+
+}
+
+p.latest-score-text{
+	margin: 0% 0% 0% 0%;
+	font-size: 20px;
+    font-weight: 800;
+}
+
+p.min-range-text{
+	margin: 0px;
+	font-size: 19px;
+    font-weight: 300;
+}
+
+p.max-range-text{
+	margin: 0;
+	font-size: 19px;
+    font-weight: 300;
+}
+
+p.set-range{
+	position: absolute;
+    margin: 3% 0% 0% 3%;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+section.left-section {
+    display: flex;
+    height: 800px;
+    flex-direction: column;
+    background-color: #d0d2d3;
+    width: 50%;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .bold-text {
@@ -53,21 +323,13 @@ input {
 	color: #FFFFFF;
 }
 
-.left-section {
-	background-color: #F7F7F7;
-}
-
-.challenger-form {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	color: #6E6E6E;
-}
 
 .min-range,
 .max-range {
 	color: #404041;
 	text-decoration: underline;
+	font-size: 20px;
+    font-weight: 800;
 }
 
 .challenger-1 {
@@ -75,33 +337,7 @@ input {
 	display: inline-block;
 }
 
-button.update-button {
-	background-color: #6E6E6E;
-	border-radius: 25px;
-    border: 0;
-}
 
-fieldset.set-range{
-	display: block;
-	background-color: #ffffff;
-	border: none;
-}
 
-form.range-form {
 
-    height: 6em;
-    width: 95%;
-    background-color: #ffffff;
-    padding: 0;
-    margin: 15px;
-
-}
-
-section.left-section {
-	background-color: #d0d2d3;
-	display: flex;
-	flex-direction: column;
-    height: 700px;
-    width: 50%
-}
 
