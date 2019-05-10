@@ -25,6 +25,85 @@ article.score-form{
     width: 95%;
 }
 
+/*winner card styling*/
+.proto-winner-card {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	height: 225px;
+	width: 100%;
+	background-color: #FFFFFF;
+}
+
+.proto-winner-card-top {
+	display: flex;
+	flex-direction: row;
+	color: #6E6E6E;
+	font-weight: 300;
+	justify-content: space-around;
+	align-items: center;
+	height: 40px;
+	width: 95%;
+	text-align: center;
+	border-bottom: solid;
+	border-width: 1.5px;
+	border-color: #D0D2D3;
+}
+
+.challenger-1-name-output{
+	color: #6E6E6E;
+	font-weight: bold;
+	margin: 0% 0% 0% 0%;
+}
+
+.challenger-2-name-output{
+	color: #6E6E6E;
+	font-weight: bold;
+	margin: 0% 0% 0% 0%;
+}
+
+.match-winner-name {
+}
+
+.winner-label {
+	font-weight: 300;
+	font-size: 32px;
+	color: #6E6E6E;
+}
+
+.proto-winner-card-bottom {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	color:#6E6E6E;
+	font-weight: lighter;
+	height: 40px;
+	width: 95%;
+	text-align: center;
+	border-top: solid;
+	border-width: 1.5px;
+	border-color: #D0D2D3;
+}
+
+.close-winner-card-button {
+	height: 25px;
+	font-size: 16px;
+	color: #D0D2D3;
+	background-color: #6E6E6E;
+	border-radius: 50%;
+}
+/*winner card styling end*/
+
+
+article.winner-card{
+	display: flex;
+    width: 100%;
+    background-color: #ffffff;
+    justify-content: center;
+}
+
 body {
 	background-color: #656668;
 	font-family: 'Open Sans', sans-serif;
@@ -219,6 +298,7 @@ label.label-2-name{
 
 main {
 	width: 100%;
+	display: flex;
 }
 
 output {
@@ -227,9 +307,6 @@ output {
     color: #dd1972;
 }
 
-p.challenger-1-name{
-	margin: 0% 0% 0% 0%;
-}
 
 p.challenger-2-name{
 	margin: 0% 0% 0% 0%;
@@ -297,10 +374,19 @@ section.left-section {
     display: flex;
     height: 800px;
     flex-direction: column;
-    background-color: #d0d2d3;
+    background-color: #F7F7F7;
     width: 50%;
     align-items: center;
     justify-content: space-around;
+}
+
+section.right-section{
+	padding: 0% 2.5% 0% 2.5%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 50%;
+    background-color: #D0D2D3;
 }
 
 .bold-text {
@@ -336,8 +422,3 @@ section.left-section {
 	border-color: #D0D2D3;
 	display: inline-block;
 }
-
-
-
-
-
