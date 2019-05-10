@@ -1,7 +1,6 @@
 <html>
 	<head>
 		<title>Number Guesser</title>
-		<script type="text/javascript" src="main.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,600i,700,800" rel="stylesheet">
 	</head>
@@ -46,7 +45,7 @@
 					</form>
 				</div>
 				<div class="button-group">
-					<button type="button" class="submit-guess-button">Submit Guess</button>
+					<button type="button" class="submit-guess-button" id="submit-guess-button">Submit Guess</button>
 					<button type="button" class="reset-game-button">Reset Game</button>
 					<button type="button" class="clear-game-button">Clear Game</button>
 				</div>
@@ -56,7 +55,7 @@
 					<p class="latest-score-text">Latest Score</p>
 						<div class="latest-score-container">
 							<div class="current-guess">
-								<p class="challenger-1-name">Challenger 1 Name</p>
+								<p class="challenger-1-name" id="change-challenger-one-name">Challenger 1 Name</p>
 								<p class="current-guess-text">current guess</p>
 							</div>
 							<div class="challenger-output-container">
@@ -66,7 +65,7 @@
 						</div>
 						<div class="latest-score-container">
 							<div class="challenger-output-container">
-								<p class="challenger-2-name">Challenger 2 Name</p>
+								<p class="challenger-2-name" id="change-challenger-two-name">Challenger 2 Name</p>
 								<p class="current-guess-text">current guess</p>
 							</div >
 							<div class="challenger-output-container">
@@ -103,46 +102,8 @@
 				<p><span class="winner-number-of-guesses"></span>GUESSES<p>
 				<p><span class="winner-time-spent"></span>MINUTES</p>
 			</article>
-			<article class="winner-card">
-				<p><span class="challenger-1-name challenger-1-name-output"></span> vs <span class="challenger-2-name challenger-2-name-output"></span></p>
-				<output class="match-winner-name">
-					<p>WINNER</p>
-				</output>
-				<p><span class="winner-number-of-guesses"></span>GUESSES<p>
-				<p><span class="winner-time-spent"></span>MINUTES</p>
-			</article>
 		</section>
 	</main>
 </body>
-</html>
-	<script>
-		// max min input/output & random number output
-		var updateButton = document.querySelector("#update-button");
-		var minInput = document.querySelector("#min-input-field");
-		var minOutput = document.querySelector("#min-output");
-		var maxInput = document.querySelector("#max-input-field");
-		var maxOutput = document.querySelector("#max-output");
-
-		updateButton.addEventListener("click", function (){
-			var newMinOutput = Math.floor(minInput.value);
-			minOutput.innerText = newMinOutput;
-			var newMaxOutput = Math.floor(maxInput.value);
-			maxOutput.innerText = newMaxOutput;
-
-			randomNum = Math.floor(Math.random() * (newMaxOutput - newMinOutput + 1) +1);
-    		return randomNum;
-			});
-		
-		//name fields
-
-		var challengerOneName = document.querySelector("#challenger-one-name");
-		var challengerTwoName = document.querySelector("#challenger-two-name");
-		
-		//begin random number generator 
-
-       	
-
-
-
-	</script>
+<script type="text/javascript" src="main.js"></script>
 </html>
