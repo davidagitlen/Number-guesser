@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<title>Number Guesser</title>
-		<script type="text/javascript" src="main.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,600i,700,800" rel="stylesheet">
 	</head>
@@ -47,7 +46,7 @@
 					</form>
 				</div>
 				<div class="button-group">
-					<button type="button" class="submit-guess-button">Submit Guess</button>
+					<button type="button" class="submit-guess-button" id="submit-guess-button">Submit Guess</button>
 					<button type="button" class="reset-game-button">Reset Game</button>
 					<button type="button" class="clear-game-button">Clear Game</button>
 				</div>
@@ -57,7 +56,7 @@
 					<p class="latest-score-text">Latest Score</p>
 						<div class="latest-score-container">
 							<div class="current-guess">
-								<p class="challenger-1-name">Challenger 1 Name</p>
+								<p class="challenger-1-name" id="change-challenger-one-name">Challenger 1 Name</p>
 								<p class="current-guess-text">current guess</p>
 							</div>
 							<div class="challenger-output-container">
@@ -67,7 +66,7 @@
 						</div>
 						<div class="latest-score-container">
 							<div class="challenger-output-container">
-								<p class="challenger-2-name">Challenger 2 Name</p>
+								<p class="challenger-2-name" id="change-challenger-two-name">Challenger 2 Name</p>
 								<p class="current-guess-text">current guess</p>
 							</div >
 							<div class="challenger-output-container">
@@ -107,4 +106,7 @@
 		</section>
 	</main>
 </body>
+
+<script type="text/javascript" src="main.js"></script>
+
 </html>
