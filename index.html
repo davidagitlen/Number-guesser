@@ -32,21 +32,21 @@
 				<div class="challenger-1">
 					<p class="challenger-1-text">Challenger 1</p>
 					<form class="challenger-1-form">
-						<label class="label-1-name">Name<input type="text" name="challenger-1-name" class="challenger-1-name challenger-1-name-input"></label>
-						<label class="label-1-guess">Guess<input type="number" name="challenger-1-guess" class="challenger-1-guess challenger-1-name-input"></label>
+						<label class="label-1-name">Name<input type="text" name="challenger-1-name" class="challenger-1-name" id="challenger-1-name"></label>
+						<label class="label-1-guess">Guess<input type="number" name="challenger-1-guess" class="challenger-1-guess" id="challenger-1-guess"></label>
 						<p class="alert warning-1"></p>
 					</form>
 				</div> 
 				<div class="challenger-2">
 					<p class="challenger-2-text">Challenger 2</p>
 					<form class="challenger-2-form">
-						<label class="label-2-name">Name<input type="text" name= "challenger-2-name" class="challenger-2-name challenger-2-name-input"></label>
-						<label class="label-2-guess">Guess<input type="number" name="challenger-2-guess" class="challenger-2-guess challenger-2-name-input"></label>
+						<label class="label-2-name">Name<input type="text" name= "challenger-2-name" class="challenger-2-name" id="challenger-2-name"></label>
+						<label class="label-2-guess">Guess<input type="number" name="challenger-2-guess" class="challenger-2-guess" id="challenger-2-guess"></label>
 						<p class="alert warning-2"></p>
 					</form>
 				</div>
 				<div class="button-group">
-					<button type="button" class="submit-guess-button">Submit Guess</button>
+					<button type="button" class="submit-guess-button" id="submit-guess-button">Submit Guess</button>
 					<button type="button" class="reset-game-button">Reset Game</button>
 					<button type="button" class="clear-game-button">Clear Game</button>
 				</div>
@@ -56,7 +56,7 @@
 					<p class="latest-score-text">Latest Score</p>
 						<div class="latest-score-container">
 							<div class="current-guess">
-								<p class="challenger-1-name">Challenger 1 Name</p>
+								<p class="challenger-1-name" id="change-challenger-one-name">Challenger 1 Name</p>
 								<p class="current-guess-text">current guess</p>
 							</div>
 							<div class="challenger-output-container">
@@ -66,7 +66,7 @@
 						</div>
 						<div class="latest-score-container">
 							<div class="challenger-output-container">
-								<p class="challenger-2-name">Challenger 2 Name</p>
+								<p class="challenger-2-name" id="change-challenger-two-name">Challenger 2 Name</p>
 								<p class="current-guess-text">current guess</p>
 							</div >
 							<div class="challenger-output-container">
@@ -78,8 +78,8 @@
 				</div>
 			</article>
 		</section>
-		<!-- <section class="right-section">
-			<article class="winner">
+		<section class="right-section">
+			<article class="winner-card">
 				<p><span class="challenger-1-name challenger-1-name-output"></span> vs <span class="challenger-2-name challenger-2-name-output"></span></p>
 				<output class="match-winner-name">
 					<p>WINNER</p>
@@ -87,22 +87,26 @@
 				<p><span class="winner-number-of-guesses"></span>GUESSES<p>
 				<p><span class="winner-time-spent"></span>MINUTES</p>
 			</article>
-		</section> -->
+			<article class="winner-card">
+				<p><span class="challenger-1-name challenger-1-name-output"></span> vs <span class="challenger-2-name challenger-2-name-output"></span></p>
+				<output class="match-winner-name">
+					<p>WINNER</p>
+				</output>
+				<p><span class="winner-number-of-guesses"></span>GUESSES<p>
+				<p><span class="winner-time-spent"></span>MINUTES</p>
+			</article>
+			<article class="winner-card">
+				<p><span class="challenger-1-name challenger-1-name-output"></span> vs <span class="challenger-2-name challenger-2-name-output"></span></p>
+				<output class="match-winner-name">
+					<p>WINNER</p>
+				</output>
+				<p><span class="winner-number-of-guesses"></span>GUESSES<p>
+				<p><span class="winner-time-spent"></span>MINUTES</p>
+			</article>
+		</section>
 	</main>
 </body>
-<script>
-	var updateButton = document.querySelector("#update-button");
-        var minInput = document.querySelector("#min-input-field");
-        var minOutput = document.querySelector("#min-output");
-        var maxInput = document.querySelector("#max-input-field");
-        var maxOutput = document.querySelector("#max-output");
-        updateButton.addEventListener("click", function (){
-            var newMinOutput = minInput.value;
-            minOutput.innerText = newMinOutput;
-            var newMaxOutput = maxInput.value;
-            maxOutput.innerText = newMaxOutput;
-        });
 
-</script>
+<script type="text/javascript" src="main.js"></script>
 
 </html>

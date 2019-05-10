@@ -25,6 +25,13 @@ article.score-form{
     width: 95%;
 }
 
+article.winner-card{
+	display: flex;
+    width: 100%;
+    background-color: #ffffff;
+    justify-content: center;
+}
+
 body {
 	background-color: #656668;
 	font-family: 'Open Sans', sans-serif;
@@ -219,6 +226,7 @@ label.label-2-name{
 
 main {
 	width: 100%;
+	display: flex;
 }
 
 output {
@@ -301,6 +309,14 @@ section.left-section {
     width: 50%;
     align-items: center;
     justify-content: space-around;
+}
+
+section.right-section{
+	padding: 0% 2.5% 0% 2.5%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 50%;
 }
 
 .bold-text {
