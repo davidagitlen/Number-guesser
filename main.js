@@ -6,7 +6,7 @@
         var maxInput = document.querySelector("#max-input-field");
         var maxOutput = document.querySelector("#max-output");
         var randomNum;
-        updateButton.addEventListener("click", setRange)
+        updateButton.addEventListener("click", setRange);
   
 
         function setRange() {
@@ -17,10 +17,6 @@
 
             randomNum = Math.floor(Math.random() * (newMaxOutput - newMinOutput + 1)) + newMinOutput;
         }
-
-
-
-
 
         // Challenger 1 and 2 input and output
 
@@ -37,39 +33,11 @@
 function challengerNames() {
     var newChallengerOneName = challengerOneName.value;
     var newChallengerTwoName = challengerTwoName.value;
-    console.log('challenger1',newChallengerOneName)
-    console.log('challenger2',newChallengerTwoName)
+    document.getElementById('change-challenger-one-name').innerHTML = newChallengerOneName;
+    document.getElementById('change-challenger-two-name').innerHTML = newChallengerTwoName;
+
+
 };
-
-    //Take newChallengerOneName and newChallengerTwoName values
-    //and replace <p> .challenger-1-name, .challenger-2-name </p>
-
-
-// function changeChallengerName (name1, name2) {
-    
-
-// }
-
-
-    // var changeChallengerOneName = document.querySelector("#change-challenger-one-name");
-    // var changeChallengerTwoName = document.querySelector("#change-challenger-two-name");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
