@@ -53,14 +53,16 @@ function challengerNames() {
 
 //>>>>>>>>>>>Reset button clears challenger forms and sets new random number. Console.log on line 18 to check randomNum on both invocations of setRange();
 
-var resetButton = document.querySelector('#reset-button')
+var clearButton = document.querySelector('#clear-button')
 
-resetButton.addEventListener('click', clearChallengerForm)
+clearButton.addEventListener('click', clearChallengerForm)
 
 function clearChallengerForm () {
     document.getElementById('challenger-1-form').reset();
     document.getElementById('challenger-2-form').reset();
-    setRange();
+    document.getElementById('min-range-form').reset();
+    document.getElementById('max-range-form').reset();
+    
 }
 
 
