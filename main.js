@@ -26,6 +26,17 @@
 
     // Guess 1 and 2 input and output
 
+    var guessOne = document.querySelector("#challenger-1-guess");
+    var guessTwo = document.querySelector("#challenger-2-guess");
+
+    var submitGuessButton = document.querySelector("#submit-guess-button");
+
+    submitGuessButton.addEventListener("click", challengerGuess);
+    submitGuessButton.addEventListener("click", challengerNames);
+
+//these variables have to be declared with no values 
+//in order to assign them values from inside the function
+
     var outputGuessOne;
     var outputGuessTwo;
     var guessOne = document.querySelector("#challenger-1-guess");
@@ -51,7 +62,33 @@ function challengerNames() {
     document.getElementById("change-challenger-two-name").innerHTML = newChallengerTwoName;
 };
 
-//>>>>>>>>>>>Reset button clears challenger forms and sets new random number. Console.log on line 18 to check randomNum on both invocations of setRange();
+//Reset button clears challenger forms and sets new random number. Console.log on line 18 to check randomNum on both invocations of setRange();
+
+    var tooHighMessage = "That's too high!";
+    var tooLowMessage = "That's too low!";
+    var goldilocksMessage = "Boom!"
+
+function challengerOneCompareNumbers() {
+    if (outputGuessOne > randomNum) {
+        document.getElementById("challenger-1-result-message").innerHTML = tooHighMessage;
+    } else if (outputGuessOne < randomNum) {
+        document.getElementById("challenger-1-result-message").innerHTML = tooLowMessage;
+    } else if (outputGuessOne === randomNum) {
+        document.getElementById("challenger-1-result-message").innerHTML = goldilocksMessage;
+        insertWinnerCard ();
+    }
+};
+
+function challengerTwoCompareNumbers() {
+    if (outputGuessTwo > randomNum) {
+        document.getElementById("challenger-2-result-message").innerHTML = tooHighMessage;
+    } else if (outputGuessTwo < randomNum) {
+        document.getElementById("challenger-2-result-message").innerHTML = tooLowMessage;
+    } else if (outputGuessOne === randomNum) {
+        document.getElementById("challenger-2-result-message").innerHTML = goldilocksMessage;
+        insertWinnerCard ();
+    }
+};
 
 var clearButton = document.querySelector('#clear-button')
 
@@ -78,42 +115,53 @@ function resetGameButton () {
     setRange();
 }
 
+    document.getElementById('max-range-form').reset();  
+}
+
+building out testing the numbers against randomNum
+
+    var tooHighMessage = "That's too high!";
+    var tooLowMessage = "That's too low!";
+    var goldilocksMessage = "Boom!"
+
+function challengerOneCompareNumbers() {
+    if (outputGuessOne > randomNum) {
+        document.getElementById("challenger-1-result-message").innerHTML = tooHighMessage;
+    } else if (outputGuessOne < randomNum) {
+        document.getElementById("challenger-1-result-message").innerHTML = tooLowMessage;
+    } else if (outputGuessOne === randomNum) {
+        document.getElementById("challenger-1-result-message").innerHTML = goldilocksMessage; 
+    }
+};
+
+function challengerTwoCompareNumbers() {
+    if (outputGuessTwo > randomNum) {
+        document.getElementById("challenger-2-result-message").innerHTML = tooHighMessage;
+    } else if (outputGuessTwo < randomNum) {
+        document.getElementById("challenger-2-result-message").innerHTML = tooLowMessage;
+    } else if (outputGuessOne === randomNum) {
+        document.getElementById("challenger-2-result-message").innerHTML = goldilocksMessage;
+    }
+};
 
 
+submitGuessButton.addEventListener("click", challengerOneCompareNumbers);
+submitGuessButton.addEventListener("click", challengerTwoCompareNumbers);
+
+//working out how to insert a card below
+
+var rightSectionContainer = document.querySelector(".right-section");
+
+var winnerCard = "<article class=\"proto-winner-card\">" + 
+                "<div class=\"proto-winner-card-top\"><span class=\"challenger-1-name challenger-1-name-output\">CHALLENGER 1 NAME</span> vs <span class=\"challenger-2-name challenger-2-name-output\">CHALLENGER 2 NAME</span></div>" +
+                "<output class=\"match-winner-name\"></output>" +
+                "<p class=\"winner-label\">WINNER</p>" +
+                "<div class=\"proto-winner-card-bottom\"><span class=\"winner-number-of-guesses\"></span>GUESSES<span class=\"winner-time-spent\"></span>MINUTES<button type=button class=\"close-winner-card-button\">X</button></div>" +
+            "</article>";
 
 
-
-
-
-//building out testing the numbers against randomNum
-
-//     var tooHighMessage = "That's too high!";
-//     var tooLowMessage = "That's too low!";
-//     var goldilocksMessage = "Boom!"
-
-// function challengerOneCompareNumbers() {
-//     if (outputGuessOne > randomNum) {
-//         document.getElementById("challenger-1-result-message").innerHTML = tooHighMessage;
-//     } else if (outputGuessOne < randomNum) {
-//         document.getElementById("challenger-1-result-message").innerHTML = tooLowMessage;
-//     } else if (outputGuessOne === randomNum) {
-//         document.getElementById("challenger-1-result-message").innerHTML = goldilocksMessage; 
-//     }
-// };
-
-// function challengerTwoCompareNumbers() {
-//     if (outputGuessTwo > randomNum) {
-//         document.getElementById("challenger-2-result-message").innerHTML = tooHighMessage;
-//     } else if (outputGuessTwo < randomNum) {
-//         document.getElementById("challenger-2-result-message").innerHTML = tooLowMessage;
-//     } else if (outputGuessOne === randomNum) {
-//         document.getElementById("challenger-2-result-message").innerHTML = goldilocksMessage;
-//     }
-// };
-
-// submitGuessButton.addEventListener("click", challengerOneCompareNumbers);
-// submitGuessButton.addEventListener("click", challengerTwoCompareNumbers);
-
-
+function insertWinnerCard () {
+rightSectionContainer.innerHTML = winnerCard;
+};
 
 
