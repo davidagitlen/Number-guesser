@@ -31,8 +31,8 @@
 
     var submitGuessButton = document.querySelector("#submit-guess-button");
 
-    submitGuessButton.addEventListener("click", challengerNames);
     submitGuessButton.addEventListener("click", challengerGuess);
+    submitGuessButton.addEventListener("click", challengerNames);
 
 //these variables have to be declared with no values 
 //in order to assign them values from inside the function
@@ -75,7 +75,8 @@ function challengerOneCompareNumbers() {
     } else if (outputGuessOne < randomNum) {
         document.getElementById("challenger-1-result-message").innerHTML = tooLowMessage;
     } else if (outputGuessOne === randomNum) {
-        document.getElementById("challenger-1-result-message").innerHTML = goldilocksMessage; 
+        document.getElementById("challenger-1-result-message").innerHTML = goldilocksMessage;
+        insertWinnerCard ();
     }
 };
 
@@ -86,12 +87,27 @@ function challengerTwoCompareNumbers() {
         document.getElementById("challenger-2-result-message").innerHTML = tooLowMessage;
     } else if (outputGuessOne === randomNum) {
         document.getElementById("challenger-2-result-message").innerHTML = goldilocksMessage;
+        insertWinnerCard ();
     }
 };
 
 submitGuessButton.addEventListener("click", challengerOneCompareNumbers);
 submitGuessButton.addEventListener("click", challengerTwoCompareNumbers);
 
+//working out how to insert a card below
 
+var rightSectionContainer = document.querySelector(".right-section");
+
+var winnerCard = "<article class=\"proto-winner-card\">" + 
+                "<div class=\"proto-winner-card-top\"><span class=\"challenger-1-name challenger-1-name-output\">CHALLENGER 1 NAME</span> vs <span class=\"challenger-2-name challenger-2-name-output\">CHALLENGER 2 NAME</span></div>" +
+                "<output class=\"match-winner-name\"></output>" +
+                "<p class=\"winner-label\">WINNER</p>" +
+                "<div class=\"proto-winner-card-bottom\"><span class=\"winner-number-of-guesses\"></span>GUESSES<span class=\"winner-time-spent\"></span>MINUTES<button type=button class=\"close-winner-card-button\">X</button></div>" +
+            "</article>";
+
+
+function insertWinnerCard () {
+rightSectionContainer.innerHTML = winnerCard;
+};
 
 
