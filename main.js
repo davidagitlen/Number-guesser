@@ -22,12 +22,24 @@
 
 
     var challengerOneName = document.querySelector("#challenger-1-name");
-    var challengerOneGuess = document.querySelector("#challenger-1-guess");
     var challengerTwoName = document.querySelector("#challenger-2-name");
-    var challengerTwoGuess = document.querySelector("#challenger-2-guess");
+
+    // Guess 1 and 2 input and output
+
+    var guessOne = document.querySelector("#challenger-1-guess");
+    var guessTwo = document.querySelector("#challenger-2-guess");
+
     var submitGuessButton = document.querySelector("#submit-guess-button");
 
     submitGuessButton.addEventListener("click", challengerNames);
+    submitGuessButton.addEventListener("click", challengerGuess);
+
+function challengerGuess() {
+    var outputGuessOne = guessOne.value;
+    var outputGuessTwo = guessTwo.value;
+    document.getElementById('challenger-1-guess-output').innerHTML = outputGuessOne;
+    document.getElementById('challenger-2-guess-output').innerHTML = outputGuessTwo;
+}
 
 
 function challengerNames() {
@@ -35,8 +47,6 @@ function challengerNames() {
     var newChallengerTwoName = challengerTwoName.value;
     document.getElementById('change-challenger-one-name').innerHTML = newChallengerOneName;
     document.getElementById('change-challenger-two-name').innerHTML = newChallengerTwoName;
-
-
 };
 
 
