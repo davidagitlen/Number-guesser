@@ -34,14 +34,20 @@
     submitGuessButton.addEventListener("click", challengerNames);
     submitGuessButton.addEventListener("click", challengerGuess);
 
+//these variables have to be declared with no values 
+//in order to assign them values from inside the function
     var outputGuessOne;
     var outputGuessTwo;
 
+//the two variables have to be declared before assigning the innerHTML
+//otherwise we were getting "undefined" displaying on the first click,
+//and having to click the button a second time to display the number
+
 function challengerGuess() {
-    document.getElementById('challenger-1-guess-output').innerHTML = outputGuessOne;
-    document.getElementById('challenger-2-guess-output').innerHTML = outputGuessTwo;
     outputGuessOne = parseInt(guessOne.value);
     outputGuessTwo = parseInt(guessTwo.value);
+    document.getElementById("challenger-1-guess-output").innerHTML = outputGuessOne;
+    document.getElementById("challenger-2-guess-output").innerHTML = outputGuessTwo;
     console.log(outputGuessOne);
     console.log(typeof outputGuessOne);
     console.log(outputGuessTwo);
@@ -51,13 +57,13 @@ function challengerGuess() {
 function challengerNames() {
     var newChallengerOneName = challengerOneName.value;
     var newChallengerTwoName = challengerTwoName.value;
-    document.getElementById('change-challenger-one-name').innerHTML = newChallengerOneName;
-    document.getElementById('change-challenger-two-name').innerHTML = newChallengerTwoName;
+    document.getElementById("change-challenger-one-name").innerHTML = newChallengerOneName;
+    document.getElementById("change-challenger-two-name").innerHTML = newChallengerTwoName;
     console.log(newChallengerOneName);
     console.log(newChallengerTwoName);
 };
 
-//building out testing the numbers
+//building out testing the numbers against randomNum
 
     var tooHighMessage = "That's too high!";
     var tooLowMessage = "That's too low!";
@@ -65,21 +71,21 @@ function challengerNames() {
 
 function challengerOneCompareNumbers() {
     if (outputGuessOne > randomNum) {
-        console.log( tooHighMessage);
+        document.getElementById("challenger-1-result-message").innerHTML = tooHighMessage;
     } else if (outputGuessOne < randomNum) {
-        console.log( tooLowMessage);
+        document.getElementById("challenger-1-result-message").innerHTML = tooLowMessage;
     } else if (outputGuessOne === randomNum) {
-        console.log( goldilocksMessage); 
+        document.getElementById("challenger-1-result-message").innerHTML = goldilocksMessage; 
     }
 };
 
 function challengerTwoCompareNumbers() {
     if (outputGuessTwo > randomNum) {
-        console.log(tooHighMessage);
+        document.getElementById("challenger-2-result-message").innerHTML = tooHighMessage;
     } else if (outputGuessTwo < randomNum) {
-        console.log( tooLowMessage);
+        document.getElementById("challenger-2-result-message").innerHTML = tooLowMessage;
     } else if (outputGuessOne === randomNum) {
-        console.log( goldilocksMessage);
+        document.getElementById("challenger-2-result-message").innerHTML = goldilocksMessage;
     }
 };
 
