@@ -29,7 +29,7 @@
 				<p class="challenger-top-text">The Current Range is <span class="min-range min-range-output" id="min-output">1</span> to <span class="max-range max-range-output" id="max-output">100</span></p>
 				<div class="challenger-1">
 					<p class="challenger-1-text">Challenger 1</p>
-					<form class="challenger-1-form">
+					<form class="challenger-1-form" id="challenger-1-form">
 						<label class="label-1-name">Name<input type="text" name="challenger-1-name" class="challenger-1-name" id="challenger-1-name"></label>
 						<label class="label-1-guess">Guess<input type="number" name="challenger-1-guess" class="challenger-1-guess" id="challenger-1-guess"></label>
 						<p class="alert warning-1"></p>
@@ -37,7 +37,7 @@
 				</div> 
 				<div class="challenger-2">
 					<p class="challenger-2-text">Challenger 2</p>
-					<form class="challenger-2-form">
+					<form class="challenger-2-form" id="challenger-2-form">
 						<label class="label-2-name">Name<input type="text" name= "challenger-2-name" class="challenger-2-name" id="challenger-2-name"></label>
 						<label class="label-2-guess">Guess<input type="number" name="challenger-2-guess" class="challenger-2-guess" id="challenger-2-guess"></label>
 						<p class="alert warning-2"></p>
@@ -45,7 +45,7 @@
 				</div>
 				<div class="button-group">
 					<button type="button" class="submit-guess-button" id="submit-guess-button">Submit Guess</button>
-					<button type="button" class="reset-game-button">Reset Game</button>
+					<button type="button" class="reset-game-button" id="reset-button">Reset Game</button>
 					<button type="button" class="clear-game-button">Clear Game</button>
 				</div>
 			</article>
@@ -82,7 +82,7 @@
 				<div class="proto-winner-card-top"><span class="challenger-1-name challenger-1-name-output">CHALLENGER 1 NAME</span> vs <span class="challenger-2-name challenger-2-name-output">CHALLENGER 2 NAME</span></div>
 				<output class="match-winner-name"></output>
 				<p class="winner-label">WINNER</p>
-				<div class="proto-winner-card-bottom"><span class="winner-number-of-guesses"></span>GUESSES<span class="winner-time-spent"></span>MINUTES<button type=button class="close-winner-card-button">X</button></div>
+				<div class="proto-winner-card-bottom"><span class="winner-number-of-guesses"></span>GUESSES<span class="winner-time-spent"></span>MINUTES<button type="button" class="close-winner-card-button">X</button></div>
 			</article>
 			<!-- prototype above -->
 			<article class="winner-card">
