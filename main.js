@@ -115,10 +115,12 @@ function resetGameButton () {
     setRange();
 }
 
-    document.getElementById('max-range-form').reset();  
-}
+//     document.getElementById('max-range-form').reset();  
+// }
+
 
 //building out testing the numbers against randomNum
+
 
 var tooHighMessage = "That's too high!";
 var tooLowMessage = "That's too low!";
@@ -142,7 +144,9 @@ function challengerTwoCompareNumbers() {
         document.getElementById("challenger-2-result-message").innerHTML = tooLowMessage;
     } else if (outputGuessOne === randomNum) {
         document.getElementById("challenger-2-result-message").innerHTML = goldilocksMessage;
-        insertWinnerCard();
+
+    insertWinnerCard();
+
     }
 };
 
