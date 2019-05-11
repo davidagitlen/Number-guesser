@@ -6,6 +6,7 @@ var minOutput = document.querySelector("#min-output");
 var maxInput = document.querySelector("#max-input-field");
 var maxOutput = document.querySelector("#max-output");
 var randomNum;
+
 updateButton.addEventListener("click", setRange);
 
 function setRange() {
@@ -16,15 +17,15 @@ function setRange() {
 
     randomNum = Math.floor(Math.random() * (newMaxOutput - newMinOutput + 1)) + newMinOutput;
     console.log(randomNum)
-    }
+    };
 
-    // Challenger 1 and 2 input and output
+// Challenger 1 and 2 input and output
 
 
 var challengerOneName = document.querySelector("#challenger-1-name");
 var challengerTwoName = document.querySelector("#challenger-2-name");
 
-    // Guess 1 and 2 input and output
+// Guess 1 and 2 input and output
 
 var guessOne = document.querySelector("#challenger-1-guess");
 var guessTwo = document.querySelector("#challenger-2-guess");
@@ -64,72 +65,38 @@ function challengerNames() {
 
 // button clears challenger forms and sets new random number. Console.log on line 18 to check randomNum on both invocations of setRange();
 
-var tooHighMessage = "That's too high!";
-var tooLowMessage = "That's too low!";
-var goldilocksMessage = "Boom!"
 
-function challengerOneCompareNumbers() {
-    if (outputGuessOne > randomNum) {
-        document.getElementById("challenger-1-result-message").innerHTML = tooHighMessage;
-    } else if (outputGuessOne < randomNum) {
-        document.getElementById("challenger-1-result-message").innerHTML = tooLowMessage;
-    } else if (outputGuessOne === randomNum) {
-        document.getElementById("challenger-1-result-message").innerHTML = goldilocksMessage;
-        insertWinnerCard ();
-    }
-};
-
-function challengerTwoCompareNumbers() {
-    if (outputGuessTwo > randomNum) {
-        document.getElementById("challenger-2-result-message").innerHTML = tooHighMessage;
-    } else if (outputGuessTwo < randomNum) {
-        document.getElementById("challenger-2-result-message").innerHTML = tooLowMessage;
-    } else if (outputGuessOne === randomNum) {
-        document.getElementById("challenger-2-result-message").innerHTML = goldilocksMessage;
-        insertWinnerCard ();
-    }
-};
-
-var clearButton = document.querySelector('#clear-button')
-
-clearButton.addEventListener('click', clearChallengerForm)
-
-function clearChallengerForm () {
-    document.getElementById('challenger-1-form').reset();
-    document.getElementById('challenger-2-form').reset();
-    document.getElementById('min-range-form').reset();
-    document.getElementById('max-range-form').reset();
-    document.getElementById('guess-1-form').reset();
-    document.getElementById('guess-2-form').reset();
-}
-
+//      
 //Reset button that clears the the guess 1 and 2 columns and generates a randomNum//
 
-var resetButton = document.querySelector('#reset-button')
+// var resetButton = document.querySelector('#reset-button')
 
-resetButton.addEventListener('click', resetGameButton)
+// resetButton.addEventListener('click', resetGameButton)
 
-function resetGameButton () {
-    document.getElementById('guess-1-form').reset();
-    document.getElementById('guess-2-form').reset();
-    setRange();
-}
+// function resetGameButton () {
+//     document.getElementById('guess-1-form').reset();
+//     document.getElementById('guess-2-form').reset();
+//     setRange();
+// };
 
-<<<<<<< HEAD
 //building out testing the numbers against randomNum
 
-=======
-//     document.getElementById('max-range-form').reset();  
+
+//document.getElementById('max-range-form').reset();  
 // }
 
 
 //building out testing the numbers against randomNum
 
 
->>>>>>> 3c4a2e0646ca12c978319b439e0878a28735f299
+
 var tooHighMessage = "That's too high!";
 var tooLowMessage = "That's too low!";
 var goldilocksMessage = "Boom!"
+
+submitGuessButton.addEventListener("click", challengerOneCompareNumbers);
+submitGuessButton.addEventListener("click", challengerTwoCompareNumbers);
+var rightSectionContainer = document.querySelector(".right-section");
 
 function challengerOneCompareNumbers() {
     if (outputGuessOne > randomNum) {
@@ -138,7 +105,7 @@ function challengerOneCompareNumbers() {
         document.getElementById("challenger-1-result-message").innerHTML = tooLowMessage;
     } else if (outputGuessOne === randomNum) {
         document.getElementById("challenger-1-result-message").innerHTML = goldilocksMessage; 
-        insertWinnerCard();
+        rightSectionContainer.insertAdjacentHTML('afterbegin', winnerCard);;
     }
 };
 
@@ -149,34 +116,29 @@ function challengerTwoCompareNumbers() {
         document.getElementById("challenger-2-result-message").innerHTML = tooLowMessage;
     } else if (outputGuessOne === randomNum) {
         document.getElementById("challenger-2-result-message").innerHTML = goldilocksMessage;
-<<<<<<< HEAD
-        insertWinnerCard();
-=======
-
-    insertWinnerCard();
-
->>>>>>> 3c4a2e0646ca12c978319b439e0878a28735f299
+        rightSectionContainer.insertAdjacentHTML('afterbegin', winnerCard);;
     }
 };
 
 
-submitGuessButton.addEventListener("click", challengerOneCompareNumbers);
-submitGuessButton.addEventListener("click", challengerTwoCompareNumbers);
-
 //working out how to insert a card below
+/*can get multiple cards, problem is if outputGuessTwo is undefined still equates to randomNum(?WHY?), 
+and displays multiple cards, there is afterbegin and beforeend, not sure which is better,
+but they both appear to work the same because rightSectionContainer is empty before populating
+with any cards*/
 
-var rightSectionContainer = document.querySelector(".right-section");
+
 
 var winnerCard = "<article class=\"proto-winner-card\">" + 
-                "<div class=\"proto-winner-card-top\"><span class=\"challenger-1-name challenger-1-name-output\">CHALLENGER 1 NAME</span> vs <span class=\"challenger-2-name challenger-2-name-output\">CHALLENGER 2 NAME</span></div>" +
+                "<div class=\"proto-winner-card-top\">"+
+                "<span class=\"challenger-1-name challenger-1-name-output\">CHALLENGER 1 NAME</span>" +
+                " vs <span class=\"challenger-2-name challenger-2-name-output\">CHALLENGER 2 NAME</span></div>" +
                 "<output class=\"match-winner-name\"></output>" +
                 "<p class=\"winner-label\">WINNER</p>" +
-                "<div class=\"proto-winner-card-bottom\"><span class=\"winner-number-of-guesses\"></span>GUESSES<span class=\"winner-time-spent\"></span>MINUTES<button type=button class=\"close-winner-card-button\">X</button></div>" +
-            "</article>";
+                "<div class=\"proto-winner-card-bottom\">"+
+                "<span class=\"winner-number-of-guesses\"></span>GUESSES<span class=\"winner-time-spent\">"+
+                "</span>MINUTES<button type=button class=\"close-winner-card-button\">X</button></div>" +
+                "</article>";
 
-
-function insertWinnerCard () {
-rightSectionContainer.innerHTML = winnerCard;
-};
 
 
