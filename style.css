@@ -209,10 +209,22 @@ div.set-range {
     display: flex;
 }
 
-form{
+form.challenger-1-form{
+
+}
+form.challenger-2-form{
+
+}
+
+form.guess-1-form{
 	display: flex;
     width: 114%;
 }
+
+form.guess-2-form{
+    
+}
+
 
 form.min-range-form{
 	display: flex;

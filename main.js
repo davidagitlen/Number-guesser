@@ -62,12 +62,21 @@ function clearChallengerForm () {
     document.getElementById('challenger-2-form').reset();
     document.getElementById('min-range-form').reset();
     document.getElementById('max-range-form').reset();
-    
+    document.getElementById('guess-1-form').reset();
+    document.getElementById('guess-2-form').reset();
 }
 
+//Reset button that clears the the guess 1 and 2 columns and generates a randomNum//
 
+var resetButton = document.querySelector('#reset-button')
 
+resetButton.addEventListener('click', resetGameButton)
 
+function resetGameButton () {
+    document.getElementById('guess-1-form').reset();
+    document.getElementById('guess-2-form').reset();
+    setRange();
+}
 
 
 
