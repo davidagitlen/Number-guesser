@@ -7,11 +7,6 @@ var maxInput = document.querySelector("#max-input-field");
 var maxOutput = document.querySelector("#max-output");
 var randomNum = null;
 
-
-
-
-
-
 updateButton.addEventListener("click", setRange);
 
 function setRange() {
@@ -75,7 +70,16 @@ function challengerNames() {
 
 // button clears challenger forms and sets new random number. Console.log on line 18 to check randomNum on both invocations of setRange();
 
-
+var clearButton = document.querySelector('#clear-button')
+clearButton.addEventListener('click', clearChallengerForm)
+function clearChallengerForm () {
+  document.getElementById('challenger-1-form').reset();
+  document.getElementById('challenger-2-form').reset();
+  document.getElementById('min-range-form').reset();
+  document.getElementById('max-range-form').reset();
+  document.getElementById('guess-1-form').reset();
+  document.getElementById('guess-2-form').reset();
+}
 //      
 //Reset button that clears the the guess 1 and 2 columns and generates a randomNum//
 
