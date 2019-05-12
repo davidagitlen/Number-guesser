@@ -54,8 +54,6 @@ function challengerGuess() {
 
 var submitGuessButton = document.querySelector("#submit-guess-button");
 
-// submitGuessButton.addEventListener("click", challengerNames);
-// submitGuessButton.addEventListener("click", challengerGuess);
 
 var newChallengerOneName = null;
 var newChallengerTwoName = null;
@@ -104,6 +102,7 @@ function handleSubmit() {
     challengerGuess();
     challengerOneCompareNumbers();
     challengerTwoCompareNumbers();
+    enableClearButton();
 }
 
 
@@ -112,8 +111,6 @@ var tooHighMessage = "That's too high!";
 var tooLowMessage = "That's too low!";
 var goldilocksMessage = "Boom!"
 
-// submitGuessButton.addEventListener("click", challengerOneCompareNumbers);
-// submitGuessButton.addEventListener("click", challengerTwoCompareNumbers);
 
 submitGuessButton.addEventListener("click", handleSubmit);
 
@@ -168,6 +165,75 @@ function challengerTwoCompareNumbers() {
         winnerName = newChallengerTwoName;
     }
 };
+
+
+function insertWinnerCard () {
+rightSectionContainer.innerHTML = winnerCard;
+};
+
+
+minInput.addEventListener('keydown', enableClearButton);
+maxInput.addEventListener('keydown', enableClearButton);
+challengerOneName.addEventListener('keydown', enableClearButton);
+challengerTwoName.addEventListener('keydown', enableClearButton);
+guessOne.addEventListener('keydown', enableClearButton);
+guessTwo.addEventListener('keydown', enableClearButton);
+////disable clear and reset buttons
+
+function enableClearButton() {
+    var inputFields = [
+    minInput.value,
+    maxInput.value,
+    challengerOneName.value,
+    challengerTwoName.value,
+    guessOne.value,
+    guessTwo.value
+    ];
+    for(var i = 0; i < inputFields.length; i++){
+        if (inputFields[i].length < 1) {
+            clearButton.disabled = true;
+            resetButton.disabled = true;
+            return; 
+        } else {
+            clearButton.disabled = false;
+            resetButton.disabled = false;
+        }
+    };
+};
+
+
+
+// // create a querySelector for guessOne and guessTwo, use innerHTML or innerText//
+
+
+// guessOne.addEventListener('keydown', function() {
+//   guessAlert('guessOne', guessOne)
+// });
+// guessTwo.addEventListener('keydown', function() {  
+//     guessAlert('guessTwo', guessTwo)
+// });
+
+
+// function guessAlert(guess, element) {
+//     if (element.value.isNaN) {
+//       submitGuessButton.disabled = true;
+//       ///the text of the p tag is 'guess is not a number'
+//     } else if(/* element.value is greater than max || less than the min*/) {
+//       /*disable submit button*/
+//     } else {
+//       submitGuessButton.disabled = false;
+//       /* set display of p to and empty string or display none*/
+//     };
+
+// };
+
+
+
+
+
+
+
+
 
 
 
