@@ -161,10 +161,12 @@ div.button-group{
 
 div.challenger-1 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     border-color: #D0D2D3;
     width: 85%;
-    margin: 10% 4% 0 0;
+    margin: 7% 0% 0 0;
+    position: relative;
+}
 }
 
 div.challenger-2 {
@@ -195,7 +197,6 @@ div.range-form-container{
     justify-content: space-between;
     background: #ffffff;
     padding: 0% 3% 3% 3%;
-    margin-top: 3%;
     width: 100%;
 }
 
@@ -210,15 +211,14 @@ div.set-range {
 }
 
 form.challenger-1-form{
-
+    margin: 4% 3% 0% 0%;
 }
 form.challenger-2-form{
-
+    margin: 4% 0% 0% 0%;
 }
 
 form.guess-1-form{
-	display: flex;
-    width: 114%;
+	margin: 6.3% 0% 0% 4%;
 }
 
 form.guess-2-form{
@@ -255,6 +255,8 @@ header {
 
 input{
 	height: 40px;
+    width: 382px;
+    margin: 0% 0% 0% 0%;
 }
 
 input.min-range {
@@ -265,6 +267,15 @@ input.min-range {
 input.max-range{
 	height: 40px;
     width: 130%;
+}
+
+input.challenger-1-name {
+    width: 382px;
+    margin: 0% 0% 0% 0%;
+}
+
+input.challenger-2-name{
+
 }
 
 label {
@@ -325,9 +336,8 @@ p.challenger-2-name{
 }
 
 p.challenger-1-text{
-    margin: 0;
-    font-size: 20px;
-    font-weight: 800;
+    position: absolute;
+    margin: 0% 0% 0% 0%;
 }
 
 p.challenger-2-text {
@@ -376,7 +386,6 @@ p.max-range-text{
 }
 
 p.set-range{
-	position: absolute;
     margin: 3% 0% 0% 3%;
     font-size: 20px;
     font-weight: 800;
