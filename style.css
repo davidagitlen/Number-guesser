@@ -37,9 +37,19 @@ label {
 }
 
 output {
-    font-size: 55px;
+    font-size: 50px;
     font-weight: 700;
     color: #dd1972;
+}
+
+button:hover,
+button:active {
+    background-color: #DD1972;
+}
+
+button:disabled,
+button[disabled] {
+    background-color: #D0D2D3;
 }
 
 .bold-text {
@@ -186,8 +196,9 @@ output {
 
 .challenger-1-name,
 .challenger-2-name {
-   width: 102%;
-   margin-bottom: 0%;
+    font-weight: bold;
+    width: 102%;
+    margin-bottom: 0%;
 }
 
 .guess-1-form{
@@ -246,17 +257,20 @@ output {
 }
 
 .latest-score-text{
-    margin: 0% 0% 0% 0%;
+    position: relative;
+    top: -10px;
     font-size: 20px;
     font-weight: 800;
+    height: 20px;
 }
 
 .latest-score-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     text-align: center;
-    margin: 0% 0% 0% 0%;
+    position: relative
+    right: 100px
+    height: 150px;
+    width: 34%;
+    margin-top: 25px;
 }
 
 .current-guess-text{
@@ -344,14 +358,4 @@ output {
 	color: #D0D2D3;
 	background-color: #6E6E6E;
 	border-radius: 50%;
-}
-
-button:hover,
-button:active {
-    background-color: #DD1972;
-}
-
-button:disabled,
-button[disabled] {
-    background-color: #D0D2D3;
 }
