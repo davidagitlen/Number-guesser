@@ -26,12 +26,12 @@ submitGuessButton.addEventListener("click", handleSubmit);
 resetButton.addEventListener('click', resetGameButton);
 clearButton.addEventListener('click', clearChallengerForm);
 
-minInput.addEventListener('keydown', enableClearButton);
-maxInput.addEventListener('keydown', enableClearButton);
-challengerOneName.addEventListener('keydown', enableClearButton);
-challengerTwoName.addEventListener('keydown', enableClearButton);
-guessOne.addEventListener('keydown', enableClearButton);
-guessTwo.addEventListener('keydown', enableClearButton);
+minInput.addEventListener('keyup', enableClearButton);
+maxInput.addEventListener('keyup', enableClearButton);
+challengerOneName.addEventListener('keyup', enableClearButton);
+challengerTwoName.addEventListener('keyup', enableClearButton);
+guessOne.addEventListener('keyup', enableClearButton);
+guessTwo.addEventListener('keyup', enableClearButton);
 
 function setRange() {
     var newMinOutput = parseInt(minInput.value) ;
