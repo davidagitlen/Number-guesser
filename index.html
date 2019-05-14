@@ -9,7 +9,7 @@
 		<h1><span class="bold-text">Number</span>Guesser</h1>
 		<p class="subtext-line"><span class="header-subtext">Ultimate Challenger Edition</span><p>
 	</header>
-	<main class="content">
+	<main>
 		<section class="left-section">
 			<article class="range-form">
 				<p class="set-range">Set Range</p>
@@ -28,8 +28,8 @@
 				</div>
 			</article>
 			<article class="challenger-form">
-				<p class="challenger-top-text">The Current Range is <span class="min-range min-range-output" id="min-output">1</span> to <span class="max-range max-range-output" id="max-output">100</span></p>
-				<div class="challenger-1">
+				<p class="challenger-top-text">The Current Range is <span class="min-range" id="min-output">1</span> to <span class="max-range" id="max-output">100</span></p>
+				<div class="challenger-1-container">
 					<p class="challenger-1-text">Challenger 1</p>
 					<form class="challenger-1-form" id="challenger-1-form">
 						<label class="label-1-name">Name<input type="text" name="challenger-1-name" class="challenger-1-name" id="challenger-1-name"></label>
@@ -40,7 +40,7 @@
 						<div class="alert-warning-2" id="alert-guess-1"></div>
 					</form>
 				</div> 
-				<div class="challenger-2">
+				<div class="challenger-2-container">
 					<p class="challenger-2-text">Challenger 2</p>
 					<form class="challenger-2-form" id="challenger-2-form">
 						<label class="label-2-name">Name<input type="text" name= "challenger-2-name" class="challenger-2-name" id="challenger-2-name"></label>
@@ -49,7 +49,7 @@
 					<form class="guess-2-form" id="guess-2-form">
 						<label class="label-2-guess">Guess<input type="number" pattern = "[0-9]" name="challenger-2-guess" class="challenger-2-guess" id="challenger-2-guess"></label>
 					</form>
-					<p class="alert warning-2"></p>
+					<p class="alert-warning-2"></p>
 				</div>
 				<div class="button-group">
 					<button type="button" class="submit-guess-button" id="submit-guess-button">Submit Guess</button>
@@ -60,37 +60,22 @@
 			<article class="score-form">
 				<div class="score-results">
 					<p class="latest-score-text">Latest Score</p>
-						<div class="latest-score-container">
-							<div class="current-guess">
-								<p class="challenger-1-name" id="change-challenger-one-name">Challenger 1 Name</p>
-								<p class="current-guess-text">current guess</p>
-							</div>
-							<div class="challenger-output-container">
-								<output class="challenger-1-guess" id="challenger-1-guess-output" name="challenger-1-guess challenger-1-guess-output">0</output>
-							</div>
-							<p class="challenger-1-result-message" id="challenger-1-result-message"></p>
-						</div>
-						<div class="latest-score-container">
-							<div class="challenger-output-container">
-								<p class="challenger-2-name" id="change-challenger-two-name">Challenger 2 Name</p>
-								<p class="current-guess-text">current guess</p>
-							</div >
-							<div class="challenger-output-container">
-								<output class="challenger-2-guess" id="challenger-2-guess-output" name="challenger-2-guess challenger-2-guess-output">0</output>
-							</div>
-								<p class="challenger-2-result-message" id="challenger-2-result-message"></p>
-						</div>
+					<div class="latest-score-container">
+						<p class="challenger-1-name" id="change-challenger-one-name">Challenger 1 Name</p>
+						<p class="current-guess-text">current guess</p>
+						<output class="challenger-1-guess" id="challenger-1-guess-output" name="challenger-1-guess challenger-1-guess-output">#</output>
+						<p class="challenger-1-result-message" id="challenger-1-result-message"></p>
+					</div>
+					<div class="latest-score-container">
+						<p class="challenger-2-name" id="change-challenger-two-name">Challenger 2 Name</p>
+						<p class="current-guess-text">current guess</p>
+						<output class="challenger-2-guess" id="challenger-2-guess-output" name="challenger-2-guess challenger-2-guess-output">#</output>
+						<p class="challenger-2-result-message" id="challenger-2-result-message"></p>
 					</div> 
 				</div>
 			</article>
 		</section>
-		<section class="right-section">
-			<!-- <article class="proto-winner-card">
-				<div class="proto-winner-card-top"><span class="challenger-1-name challenger-1-name-output">CHALLENGER 1 NAME</span> vs <span class="challenger-2-name challenger-2-name-output">CHALLENGER 2 NAME</span></div>
-				<output class="match-winner-name"></output>
-				<p class="winner-label">WINNER</p>
-				<div class="proto-winner-card-bottom"><span class="winner-number-of-guesses"></span>GUESSES<span class="winner-time-spent"></span>MINUTES<button type="button" class="close-winner-card-button">X</button></div>
-			</article>-->
+		<section class="right-section" id="right-section">
 		</section>
 	</main>
 </body>
