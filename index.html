@@ -14,15 +14,17 @@
 			<article class="range-form">
 				<p class="set-range">Set Range</p>
 				<div class="range-form-container">
-					<form class="min-range-form" id="min-range-form">
-						<p class="min-range-text">Min Range</p>
-						<input type="number" pattern = "[0-9]" name="min-number" class="min-range-input" id="min-input-field">
-					</form>
-					<form class="max-range-form" id="max-range-form">
-						<p class="max-range-text">Max Range</p>
-						<input type="number" pattern = "[0-9]" name="max-number" class="max-range-input" id="max-input-field">
-					</form>
-					<button type="button" class="update-button" id="update-button">Update</button>
+						<form class="min-range-form" id="min-range-form">
+							<p class="min-range-text">Min Range</p>
+							<input type="number" pattern = "[0-9]" name="min-number" class="min-range min-range-input" id="min-input-field">
+							<div></div>
+						</form>
+							<div class="minError">#</div>
+						<form class="max-range-form" id="max-range-form">
+							<p class="max-range-text">Max Range</p>
+							<input type="number" pattern = "[0-9]" name="max-number" class="max-range max-range-input" id="max-input-field">
+						</form>
+						<button type="button" class="update-button" id="update-button">Update</button>
 				</div>
 			</article>
 			<article class="challenger-form">
@@ -31,16 +33,18 @@
 					<p class="challenger-1-text">Challenger 1</p>
 					<form class="challenger-1-form" id="challenger-1-form">
 						<label class="label-1-name">Name<input type="text" name="challenger-1-name" class="challenger-1-name" id="challenger-1-name"></label>
+					<div class="alert-warning-1" id="alert-warning-1"></div>
 					</form>
 					<form class="guess-1-form" id="guess-1-form">
 						<label class="label-1-guess">Guess<input type="number" pattern = "[0-9]" name="challenger-1-guess" class="challenger-1-guess" id="challenger-1-guess"></label>
+						<div class="alert-warning-2" id="alert-guess-1"></div>
 					</form>
-					<p class="alert-warning-1"></p>
 				</div> 
 				<div class="challenger-2-container">
 					<p class="challenger-2-text">Challenger 2</p>
 					<form class="challenger-2-form" id="challenger-2-form">
 						<label class="label-2-name">Name<input type="text" name= "challenger-2-name" class="challenger-2-name" id="challenger-2-name"></label>
+						<div class="alert-warning-2" id="alert-warning-2"></div>
 					</form>
 					<form class="guess-2-form" id="guess-2-form">
 						<label class="label-2-guess">Guess<input type="number" pattern = "[0-9]" name="challenger-2-guess" class="challenger-2-guess" id="challenger-2-guess"></label>

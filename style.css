@@ -352,10 +352,21 @@ button[disabled] {
 	border-color: #D0D2D3;
 }
 
+.alert-warning-img{
+    height: 15px;
+    width: 10%;
+
+}
+.alert-warning-text{
+    color: #DD1972;
+    display: inline;
+}
+
 .close-winner-card-button {
 	height: 25px;
 	font-size: 16px;
 	color: #D0D2D3;
 	background-color: #6E6E6E;
 	border-radius: 50%;
+
 }
