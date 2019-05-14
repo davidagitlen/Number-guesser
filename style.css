@@ -445,3 +445,14 @@ button:disabled,
 button[disabled] {
     background-color: #D0D2D3;
 }
+
+.alert-warning-img{
+    height: 15px;
+    width: 10%;
+
+}
+.alert-warning-text{
+    color: #DD1972;
+    display: inline;
+
+}

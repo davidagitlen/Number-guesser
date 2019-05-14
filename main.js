@@ -14,6 +14,9 @@ var rightSectionContainer = document.querySelector(".right-section");
 var tooHighMessage = "That's too high!";
 var tooLowMessage = "That's too low!";
 var goldilocksMessage = "Boom!";
+var alertWarningOne = document.querySelector("#alert-warning-1");
+var alertWarningTwo = document.querySelector("#alert-warning-2");
+var alertGuessOne = document.querySelector("alert-guess-1");
 var outputGuessOne = null;
 var outputGuessTwo = null;
 var randomNum = null;
@@ -33,6 +36,7 @@ challengerTwoName.addEventListener('keyup', enableClearButton);
 guessOne.addEventListener('keyup', enableClearButton);
 guessTwo.addEventListener('keyup', enableClearButton);
 
+
 function setRange() {
     var newMinOutput = parseInt(minInput.value) ;
     minOutput.innerText = newMinOutput;
@@ -48,6 +52,12 @@ function handleSubmit() {
     challengerOneCompareNumbers();
     challengerTwoCompareNumbers();
     enableClearButton();
+    alertTextMessage(challengerOneName, alertWarningOne);
+    alertTextMessage(challengerTwoName, alertWarningTwo);
+    alertGuessMessage(guessOne, alertGuessOne);
+    alertMessage(maxInput,)
+    alertMessage(guessOne,)
+    alertMessage(guessTwo,)
 };
 
 function challengerNames() {
@@ -119,13 +129,14 @@ function enableClearButton() {
         if (inputFields[i].length < 1) {
             clearButton.disabled = true;
             resetButton.disabled = true;
-            return; 
+            return;
         } else {
             clearButton.disabled = false;
             resetButton.disabled = false;
         };
     };
 };
+
 
 function resetGameButton () {
     document.getElementById('guess-1-form').reset();
@@ -142,23 +153,68 @@ function clearChallengerForm () {
   document.getElementById('guess-2-form').reset();
 };
 
-// create a querySelector for guessOne and guessTwo, use innerHTML or innerText//
+//Error messages//
 
-// guessOne.addEventListener('keydown', function() {
+function alertTextMessage(input, location) {
+     var inputValue = input.value
+    if (inputValue.length < 1) {     
+        location.insertAdjacentHTML('afterbegin',`<img src="error-icon.svg" class="alert-warning-img" id="alert-warning-text"><p class="alert-warning-text">Please enter a name!</p>`);
+    } else {
+       var removeWarning = document.getElementById("alert-warning-text");
+            removeWarning.remove();
+    };
+    };
+
+function alertGuessMessage(input, location) {
+     var inputValue = input.value
+    if (inputValue.length < 1) {     
+        location.insertAdjacentHTML('afterbegin',`<img src="error-icon.svg" class="alert-warning-img" id="alert-warning-guess"><p class="alert-warning-guess">Please enter a Guess!</p>`);
+    } else {
+       var removeWarning = document.getElementById("alert-warning-guess");
+            removeWarning.remove();
+    };
+    };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // create a querySelector for guessOne and guessTwo, use innerHTML or innerText//
+
+// guessOne.addEventListener('keyup', function() {
 //   guessAlert('guessOne', guessOne)
 // });
 // guessTwo.addEventListener('keydown', function() {  
 //     guessAlert('guessTwo', guessTwo)
 // });
 
-// function guessAlert(guess, element) {
-//     if (element.value.isNaN) {
-//       submitGuessButton.disabled = true;
-//       ///the text of the p tag is 'guess is not a number'
-//     } else if(/* element.value is greater than max || less than the min*/) {
-//       /*disable submit button*/
-//     } else {
-//       submitGuessButton.disabled = false;
-//       /* set display of p to and empty string or display none*/
-//     };
-// };
+// // function guessAlert(guess, element) {
+// //     if (element.value.isNaN) {
+// //       submitGuessButton.disabled = true;
+// //       ///the text of the p tag is 'guess is not a number'
+// //     } else if(/* element.value is greater than max || less than the min*/) {
+// //       /*disable submit button*/
+// //     } else {
+// //       submitGuessButton.disabled = false;
+// //       /* set display of p to and empty string or display none*/
+// //     };
+// // };
