@@ -10,7 +10,7 @@ var guessTwo = document.querySelector("#challenger-2-guess");
 var submitGuessButton = document.querySelector("#submit-guess-button");
 var clearButton = document.querySelector('#clear-button');
 var resetButton = document.querySelector('#reset-button');
-var rightSectionContainer = document.querySelector(".right-section");
+var rightSectionContainer = document.querySelector("#right-section");
 var tooHighMessage = "That's too high!";
 var tooLowMessage = "That's too low!";
 var goldilocksMessage = "Boom!";
@@ -76,7 +76,7 @@ function challengerOneCompareNumbers() {
                 <div class="proto-winner-card-top">
                 <span class="challenger-1-name challenger-1-name-output">${newChallengerOneName}</span> 
                 vs <span class="challenger-2-name challenger-2-name-output">${newChallengerTwoName}</span></div>
-                <output class="match-winner-name">${newChallengerOneName}</output>
+                <span class="match-winner-name">${newChallengerOneName}</span>
                 <p class="winner-label">WINNER</p>
                 <div class="proto-winner-card-bottom">
                 <span class="winner-number-of-guesses"></span>GUESSES<span class="winner-time-spent">
@@ -97,7 +97,7 @@ function challengerTwoCompareNumbers() {
                 <div class="proto-winner-card-top">
                 <span class="challenger-1-name challenger-1-name-output">${newChallengerOneName}</span> 
                 vs <span class="challenger-2-name challenger-2-name-output">${newChallengerTwoName}</span></div>
-                <output class="match-winner-name">${newChallengerTwoName}</output>
+                <span class="match-winner-name">${newChallengerTwoName}</span>
                 <p class="winner-label">WINNER</p>
                 <div class="proto-winner-card-bottom">
                 <span class="winner-number-of-guesses"></span>GUESSES<span class="winner-time-spent">
