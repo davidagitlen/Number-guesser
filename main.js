@@ -27,8 +27,8 @@ var newChallengerOneName = null;
 var newChallengerTwoName = null;
 
 updateButton.addEventListener("click", setRange);
-submitGuessButton.addEventListener("click", handleSubmitUp);
-submitGuessButton.addEventListener("mousedown",handleSubmitDown)
+submitGuessButton.addEventListener("click", handleSubmit);
+submitGuessButton.addEventListener("click", handleSubmitDown);
 resetButton.addEventListener('click', resetGameButton);
 clearButton.addEventListener('click', clearChallengerForm);
 
@@ -64,26 +64,22 @@ function clearChallengerForm () {
   document.getElementById('guess-2-form').reset();
 };
 
-function handleSubmitUp() {
-    enableClearButton();
+function handleSubmit() {
     challengerNames();
     challengerGuess();
     challengerOneCompareNumbers();
     challengerTwoCompareNumbers();
-    emptyFieldAlert (challengerOneName, alertWarningOne, 'alert-warning-popup');
-    emptyGuessAlert (guessOne, alertGuessOne, 'alert-waring-popup');
- };   
- 
-
-function handleSubmitClick() {
+    enableClearButton();
     highLowError (guessOne, alertGuessOne, 'alert-warning-popup');
-    highLowError(guessTwo, alertWarningTwo, 'alert-waring-popup');
+    highLowError(guessTwo, alertGuessTwo, 'alert-warning-popup');
 };
 
-function handleSubmitDown() {
-      emptyFieldAlert (challengerTwoName, alertWarningTwo, 'alert-warning-popup');
-      emptyGuessAlert (guessTwo, alertGuessTwo, 'alert-warning-popup');
-}
+function handleSubmitDown(){
+    emptyFieldAlert (challengerOneName, alertWarningOne, 'alert-warning-popup');
+    emptyGuessAlert (guessOne, alertGuessOne, 'alert-warning-popup');
+    emptyFieldAlert (challengerTwoName, alertWarningTwo, 'alert-warning-popup');
+    emptyGuessAlert (guessTwo, alertGuessTwo, 'alert-warning-popup');
+};
 
 function enableClearButton() {
     var inputFields = [
@@ -120,39 +116,33 @@ function challengerGuess() {
     document.getElementById("challenger-2-guess-output").innerHTML = outputGuessTwo;
 };
 
-
-
 function emptyFieldAlert (input, location, id) {
-  if ( input.value === '') {
+    if  (input.value === '' && location.innerText === ''){
     location.insertAdjacentHTML('beforeend',`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Please enter a name!</p>`);
-  } else {
-    var removeWarning = document.getElementById(id);
-        removeWarning.remove();
+  } else if (input.value !== '' && location.innerText !== '') {
+    location.innerText = '';
   }
 };
 
 function emptyGuessAlert (input, location, id) {
-  if (input.value === '') {
+    if (input.value === '' && location.innerText === '') {
     location.insertAdjacentHTML('beforeend',`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Please enter a number!</p>`);
-  } else {
-    var removeWarning = document.getElementById(id);
-        removeWarning.remove();
+  } else if (input.value !== '' && location.innerText !== '') {
+    location.innerText = '';
   }
 };
 
-
-function highLowError (input, location, id) {
-        var inputValue = parseInt(input.value);
-    if (inputValue < newMinOutput) { 
-        location.insertAdjacentHTML('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img">Outside range!</p>`);
-  } else if (inputValue > newMaxOutput) {
-     location.insertAdjacentHTML ('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Outside range!</p>`)
-       }else {
-    var removeWarning = document.getElementById(id);
-        removeWarning.remove();
-  }
-};
-
+// function highLowError (input, location, id) {
+//     var inputValue = parseInt(input.value);
+//     if (inputValue < newMinOutput) { 
+//         location.insertAdjacentHTML('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img">Outside range!</p>`);
+//   } else if (inputValue > newMaxOutput) {
+//      location.insertAdjacentHTML ('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Outside range!</p>`)
+//        }else {
+//     var removeWarning = document.getElementById(id);
+//         removeWarning.remove();
+//   }
+// };
 
 function challengerOneCompareNumbers() {
     if (outputGuessOne > randomNum) {
@@ -173,6 +163,8 @@ function challengerOneCompareNumbers() {
                 </article>`);
     };
 };
+
+
 
 function challengerTwoCompareNumbers() {
     if (outputGuessTwo > randomNum) {
