@@ -63,10 +63,10 @@ button[disabled] {
 	color: #FFFFFF;
 	line-height: .1em;
 	text-align: center;
-	width: 34%;
+	width: 38%;
 	border-bottom: 1px solid #FFFFFF;
-	margin-left: 33%;
-	margin-right: 33%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .header-subtext {
@@ -304,6 +304,7 @@ button[disabled] {
 }
 
 .proto-winner-card {
+    text-transform: uppercase;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
@@ -391,42 +392,72 @@ button[disabled] {
     color: #DD1972;
 }
   
+@media screen and (max-width: 1050px){
 
+    h1 {
+        font-size: 3.5em;
+    }
 
-@media screen and (max-width: 1050px) and (min-width: 751px){
+    main{
+        display: block;
+        font-size: ;
+    }
 
-main{
+    .subtext-line {
+        top: -15px;
+        width: 46%;
+    }
 
-    display: block;
+    .left-section {
+        width: 100%;
+    }
+
+    .submit-guess-button,
+    .reset-game-button,
+    .clear-game-button {
+        width: 22%;
+    }
+
+    .right-section {
+        height: 800px;
+        width: 100%;
+        justify-content: flex-start;
+        padding-top: 2%;
+    }
+
+    .proto-winner-card{
+            margin: 2% 0% 0% 0%;
+    }
 }
 
-.right-section {
-    height: 800px;
-    width: 100%;
-}
-.left-section {
-    width: 100%;
-}
+@media screen and (max-width: 750px) {
 
-.right-section {
-    height: 800px;
-    width: 100%;
-    justify-content: flex-start;
-    padding-top: 2%;
-}
+    header {
+        height: 80px;
+    }
 
-.proto-winner-card{
-        margin: 2% 0% 0% 0%;
-}
-};
+    h1 {
+        font-size: 3em;
+    }
 
-@media screen and (max-width: 750px){
-h1 {
-    font-size: 3em;
+    .subtext-line {
+        width: 58%;
+        font-size: 12px;
+        top: -12px;
+    }
 
-}
-.subtext-line {
-    font-size: 12px;
+    .set-range {
+        font-size: 18px;
+    }
 
+    .submit-guess-button,
+    .reset-game-button,
+    .clear-game-button  {
+        width: 28%;
+        font-size: 16px;
+    }
+
+    .proto-winner-card{
+            margin: 2% 0% 0% 0%;
+    }
 }
-};
