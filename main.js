@@ -27,7 +27,8 @@ var newChallengerOneName = null;
 var newChallengerTwoName = null;
 
 updateButton.addEventListener("click", setRange);
-submitGuessButton.addEventListener("click", handleSubmit);
+submitGuessButton.addEventListener("click", handleSubmitUp);
+submitGuessButton.addEventListener("mousedown",handleSubmitDown)
 resetButton.addEventListener('click', resetGameButton);
 clearButton.addEventListener('click', clearChallengerForm);
 
@@ -63,19 +64,26 @@ function clearChallengerForm () {
   document.getElementById('guess-2-form').reset();
 };
 
-function handleSubmit() {
+function handleSubmitUp() {
+    enableClearButton();
     challengerNames();
     challengerGuess();
     challengerOneCompareNumbers();
     challengerTwoCompareNumbers();
-    enableClearButton();
-    guessRangeAlertOne(guessOne, alertGuessOne);
-    guessRangeAlertTwo(guessTwo, alertGuessTwo);
-    alertTextMessageOne(challengerOneName, alertWarningOne);
-    alertTextMessageTwo(challengerTwoName, alertWarningTwo);
-    alertGuessMessageOne(guessOne, alertGuessOne);
-    alertGuessMessageTwo(guessTwo, alertGuessTwo);
+    emptyFieldAlert (challengerOneName, alertWarningOne, 'alert-warning-popup');
+    emptyGuessAlert (guessOne, alertGuessOne, 'alert-waring-popup');
+ };   
+ 
+
+function handleSubmitClick() {
+    highLowError (guessOne, alertGuessOne, 'alert-warning-popup');
+    highLowError(guessTwo, alertWarningTwo, 'alert-waring-popup');
 };
+
+function handleSubmitDown() {
+      emptyFieldAlert (challengerTwoName, alertWarningTwo, 'alert-warning-popup');
+      emptyGuessAlert (guessTwo, alertGuessTwo, 'alert-warning-popup');
+}
 
 function enableClearButton() {
     var inputFields = [
@@ -111,6 +119,40 @@ function challengerGuess() {
     document.getElementById("challenger-1-guess-output").innerHTML = outputGuessOne;
     document.getElementById("challenger-2-guess-output").innerHTML = outputGuessTwo;
 };
+
+
+
+function emptyFieldAlert (input, location, id) {
+  if ( input.value === '') {
+    location.insertAdjacentHTML('beforeend',`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Please enter a name!</p>`);
+  } else {
+    var removeWarning = document.getElementById(id);
+        removeWarning.remove();
+  }
+};
+
+function emptyGuessAlert (input, location, id) {
+  if (input.value === '') {
+    location.insertAdjacentHTML('beforeend',`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Please enter a number!</p>`);
+  } else {
+    var removeWarning = document.getElementById(id);
+        removeWarning.remove();
+  }
+};
+
+
+function highLowError (input, location, id) {
+        var inputValue = parseInt(input.value);
+    if (inputValue < newMinOutput) { 
+        location.insertAdjacentHTML('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img">Outside range!</p>`);
+  } else if (inputValue > newMaxOutput) {
+     location.insertAdjacentHTML ('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Outside range!</p>`)
+       }else {
+    var removeWarning = document.getElementById(id);
+        removeWarning.remove();
+  }
+};
+
 
 function challengerOneCompareNumbers() {
     if (outputGuessOne > randomNum) {
@@ -151,91 +193,3 @@ function challengerTwoCompareNumbers() {
                 </article>`);
     };
 };
-
-function guessRangeAlertOne(input, location) {
-    var inputValue = parseInt(input.value);
-    if (inputValue < newMinOutput) {
-        location.insertAdjacentHTML ('beforeend', `<p class="alert-warning-text" id="min-max-warning-popup-1"><img src="error-icon.svg" class="alert-warning-img" id="alert-warning-img">Outside range!</p>`)
-    } else if (inputValue > newMaxOutput) {
-           location.insertAdjacentHTML ('beforeend', `<p class="alert-warning-text" id="min-max-warning-popup-1"><img src="error-icon.svg" class="alert-warning-img" id="alert-warning-img">Outside range!</p>`)
-    } else {
-        var removeWarning = document.getElementById("min-max-warning-popup-1");
-        removeWarning.remove();
-    };
-};
-
-function guessRangeAlertTwo(input, location) {
-    var inputValue = parseInt(input.value);
-    if (inputValue < newMinOutput) {
-        location.insertAdjacentHTML ('beforeend', `<p class="alert-warning-text" id="min-max-warning-popup-2"><img src="error-icon.svg" class="alert-warning-img" id="alert-warning-img">Outside range!</p>`)
-    } else if (inputValue > newMaxOutput) {
-           location.insertAdjacentHTML ('beforeend', `<p class="alert-warning-text" id="min-max-warning-popup-2"><img src="error-icon.svg" class="alert-warning-img" id="alert-warning-img">Outside range!</p>`)
-    } else {
-        var removeWarning = document.getElementById("min-max-warning-popup-2");
-        removeWarning.remove();
-    };
-};
-
-
-function alertTextMessageOne(input, location) {
-     var inputValue = input.value;
-    if (inputValue.length < 1) {     
-        location.insertAdjacentHTML('beforeend',`<p class="alert-warning-text" id="alert-warning-popup-1"><img src="error-icon.svg" class="alert-warning-img" id="alert-warning-img">Please enter a name!</p>`);
-    } else {
-       var removeWarning = document.getElementById("alert-warning-popup-1");
-            removeWarning.remove();
-    };
-};
-
-function alertTextMessageTwo(input, location) {
-     var inputValue = input.value;
-    if (inputValue.length < 1) {     
-        location.insertAdjacentHTML('beforeend',`<p class="alert-warning-text" id="alert-warning-popup-2"><img src="error-icon.svg" class="alert-warning-img" id="alert-warning-img">Please enter a name!</p>`);
-    } else {
-       var removeWarning = document.getElementById("alert-warning-popup-2");
-            removeWarning.remove();
-    };
-    
-};
-
-function alertGuessMessageOne(input, location) {
-     var inputValue = input.value;
-    if (inputValue.length < 1) {     
-        location.insertAdjacentHTML('beforeend',`<p class="alert-warning-guess" id="alert-guess-popup-1"><img src="error-icon.svg" class="alert-warning-img" id="alert-warning-img">Guess!</p>`);
-    } else {
-       var removeWarning = document.getElementById("alert-guess-popup-1");
-            removeWarning.remove();
-    };
-};
-
-function alertGuessMessageTwo(input, location) {
-     var inputValue = input.value;
-    if (inputValue.length < 1) {     
-        location.insertAdjacentHTML('beforeend',`<p class="alert-warning-guess" id="alert-guess-popup-2"><img src="error-icon.svg" class="alert-warning-img" id="alert-warning-img">Guess!</p>`);
-    } else {
-       var removeWarning = document.getElementById("alert-guess-popup-2");
-            removeWarning.remove();
-    };
-};
-
-
-// // create a querySelector for guessOne and guessTwo, use innerHTML or innerText//
-
-// guessOne.addEventListener('keyup', function() {
-//   guessAlert('guessOne', guessOne)
-// });
-// guessTwo.addEventListener('keydown', function() {  
-//     guessAlert('guessTwo', guessTwo)
-// });
-
-// // function guessAlert(guess, element) {
-// //     if (element.value.isNaN) {
-// //       submitGuessButton.disabled = true;
-// //       ///the text of the p tag is 'guess is not a number'
-// //     } else if(/* element.value is greater than max || less than the min*/) {
-// //       /*disable submit button*/
-// //     } else {
-// //       submitGuessButton.disabled = false;
-// //       /* set display of p to and empty string or display none*/
-// //     };
-// // };
