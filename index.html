@@ -2,6 +2,7 @@
 	<head>
 		<title>Number Guesser</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<meta name="viewport" content="width=1050px, initial-scale=1">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,600i,700,800" rel="stylesheet">
 	</head>
 <body>
@@ -12,20 +13,20 @@
 	<main>
 		<section class="left-section">
 			<article class="range-form">
-				<p class="set-range">Set Range</p>
-				<div class="range-form-container">
+				<!-- <div class="range-form-container"> -->
 						<form class="min-range-form" id="min-range-form">
+							<p class="set-range">Set Range</p>
 							<p class="min-range-text">Min Range</p>
 							<input type="number" pattern = "[0-9]" name="min-number" class="min-range min-range-input" id="min-input-field">
 							<div></div>
 						</form>
-							<div class="minError">#</div>
+							<div class="minError"></div>
 						<form class="max-range-form" id="max-range-form">
 							<p class="max-range-text">Max Range</p>
 							<input type="number" pattern = "[0-9]" name="max-number" class="max-range max-range-input" id="max-input-field">
 						</form>
 						<button type="button" class="update-button" id="update-button">Update</button>
-				</div>
+				<!-- </div> -->
 			</article>
 			<article class="challenger-form">
 				<p class="challenger-top-text">The Current Range is <span class="min-range" id="min-output">1</span> to <span class="max-range" id="max-output">100</span></p>
@@ -59,14 +60,14 @@
 			</article>
 			<article class="score-form">
 				<div class="score-results">
-					<p class="latest-score-text">Latest Score</p>
 					<div class="latest-score-container">
+					<p class="latest-score-text">Latest Score</p>
 						<p class="challenger-1-name" id="change-challenger-one-name">Challenger 1 Name</p>
 						<p class="current-guess-text">current guess</p>
 						<output class="challenger-1-guess" id="challenger-1-guess-output" name="challenger-1-guess challenger-1-guess-output">#</output>
 						<p class="challenger-1-result-message" id="challenger-1-result-message"></p>
 					</div>
-					<div class="latest-score-container">
+					<div class="latest-score-container-right">
 						<p class="challenger-2-name" id="change-challenger-two-name">Challenger 2 Name</p>
 						<p class="current-guess-text">current guess</p>
 						<output class="challenger-2-guess" id="challenger-2-guess-output" name="challenger-2-guess challenger-2-guess-output">#</output>
