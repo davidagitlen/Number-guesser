@@ -2,8 +2,8 @@
 	<head>
 		<title>Number Guesser</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<meta name="viewport" content="width=1050px, initial-scale=1">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,600i,700,800" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 <body>
 	<header>
@@ -13,7 +13,6 @@
 	<main>
 		<section class="left-section">
 			<article class="range-form">
-				<!-- <div class="range-form-container"> -->
 						<form class="min-range-form" id="min-range-form">
 							<p class="set-range">Set Range</p>
 							<p class="min-range-text">Min Range</p>
@@ -26,7 +25,6 @@
 							<input type="number" pattern = "[0-9]" name="max-number" class="max-range max-range-input" id="max-input-field">
 						</form>
 						<button type="button" class="update-button" id="update-button">Update</button>
-				<!-- </div> -->
 			</article>
 			<article class="challenger-form">
 				<p class="challenger-top-text">The Current Range is <span class="min-range" id="min-output">1</span> to <span class="max-range" id="max-output">100</span></p>
@@ -55,7 +53,7 @@
 				<div class="button-group">
 					<button type="button" class="submit-guess-button" id="submit-guess-button">Submit Guess</button>
 					<button type="button" class="reset-game-button" id="reset-button" disabled="false">Reset Game</button>
-					<button type="button" class="clear-game-button" id="clear-button" disabled="false" >Clear Game</button>
+					<button type="button" class="clear-game-button" id="clear-button" disabled= >Clear Game</button>
 				</div>
 			</article>
 			<article class="score-form">
