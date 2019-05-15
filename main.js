@@ -40,12 +40,13 @@ guessOne.addEventListener('keyup', enableClearButton);
 guessTwo.addEventListener('keyup', enableClearButton);
 
 function setRange() {
-    var newMinOutput = parseInt(minInput.value) ;
+    newMinOutput = parseInt(minInput.value) ;
     minOutput.innerText = newMinOutput;
-    var newMaxOutput = parseInt(maxInput.value);
+    newMaxOutput = parseInt(maxInput.value);
     maxOutput.innerText = newMaxOutput;
     randomNum = Math.floor(Math.random() * (newMaxOutput - newMinOutput + 1)) + newMinOutput;
     console.log(randomNum);
+
 };
 
 
@@ -70,15 +71,16 @@ function handleSubmit() {
     challengerOneCompareNumbers();
     challengerTwoCompareNumbers();
     enableClearButton();
-    highLowError (guessOne, alertGuessOne, 'alert-warning-popup');
-    highLowError(guessTwo, alertGuessTwo, 'alert-warning-popup');
+    // highLowError(guessTwo, alertGuessTwo, 'alert-warning-popup');
 };
 
 function handleSubmitDown(){
-    emptyFieldAlert (challengerOneName, alertWarningOne, 'alert-warning-popup');
-    emptyGuessAlert (guessOne, alertGuessOne, 'alert-warning-popup');
-    emptyFieldAlert (challengerTwoName, alertWarningTwo, 'alert-warning-popup');
-    emptyGuessAlert (guessTwo, alertGuessTwo, 'alert-warning-popup');
+    emptyFieldAlert(challengerOneName, alertWarningOne, 'alert-warning-popup');
+    emptyGuessAlert(guessOne, alertGuessOne, 'alert-warning-popup');
+    emptyFieldAlert(challengerTwoName, alertWarningTwo, 'alert-warning-popup');
+    emptyGuessAlert(guessTwo, alertGuessTwo, 'alert-warning-popup');
+    rangeErrorOne(guessOne, alertGuessOne, 'alert-warning-popup');
+    rangeErrorTwo(guessTwo, alertGuessTwo, 'alert-warning-popup');
 };
 
 function enableClearButton() {
@@ -132,6 +134,26 @@ function emptyGuessAlert (input, location, id) {
   }
 };
 
+
+function rangeErrorOne (input, location, id) {
+    if (parseInt(input.value) < newMinOutput && location.innerText === '') {
+    location.insertAdjacentHTML('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img">Outside range!</p>`);
+  } else if (parseInt(input.value) > newMaxOutput && location.innerText === '') {
+    location.insertAdjacentHTML ('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Outside range!</p>`)
+    } else {
+        location.innerText = '';
+  }
+};
+
+function rangeErrorTwo (input, location, id) {
+    if (parseInt(input.value) < newMinOutput && location.innerText === '') {
+    location.insertAdjacentHTML('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img">Outside range!</p>`);
+  } else if (parseInt(input.value) > newMaxOutput && location.innerText === '') {
+    location.insertAdjacentHTML ('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Outside range!</p>`)
+    } else {
+        location.innerText = '';
+  }
+};
 // function highLowError (input, location, id) {
 //     var inputValue = parseInt(input.value);
 //     if (inputValue < newMinOutput) { 
