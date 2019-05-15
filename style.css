@@ -21,6 +21,7 @@ main {
 }
 
 h1 {
+    color: #DD1972;
     font-size: 4em;
     font-weight: lighter;
     border-bottom: none;
@@ -53,7 +54,6 @@ button[disabled] {
 }
 
 .bold-text {
-	color: #DD1972;
 	font-weight: bold;
 }
 
@@ -88,7 +88,7 @@ button[disabled] {
     background: #ffffff;
     width: 95%;
     height: 153px;
-    border: 1.5px solid #D0D2D3;
+    border: 2px solid #D0D2D3;
 }
 
 .set-range {
@@ -103,8 +103,6 @@ button[disabled] {
     justify-content: space-between;
     align-items: flex-end;
     background: #ffffff;
-    border-bottom: 1px solid #D0D2D3;
-    border-left: 1px solid #D0D2D3;
     padding: 0% 3% 3% 3%;
     width: 95%;
 }
@@ -352,15 +350,6 @@ button[disabled] {
 	border-color: #D0D2D3;
 }
 
-.alert-warning-img{
-    height: 15px;
-    width: 10%;
-
-}
-.alert-warning-text{
-    color: #DD1972;
-    display: inline;
-}
 
 .close-winner-card-button {
 	height: 25px;
@@ -368,5 +357,22 @@ button[disabled] {
 	color: #D0D2D3;
 	background-color: #6E6E6E;
 	border-radius: 50%;
+}
+
+.alert-warning-img{
+    height: 15px;
+    width: 10%;
 
 }
+.alert-warning-text{
+    display: inline;
+    font-size: 16;
+    color: #DD1972;
+}
+
+.alert-warning-guess{
+    display: inline;
+    font-size: 16;
+    color: #DD1972;
+}
+
