@@ -18,6 +18,8 @@ var alertWarningOne = document.querySelector("#alert-warning-1");
 var alertWarningTwo = document.querySelector("#alert-warning-2");
 var alertGuessOne = document.querySelector("#alert-guess-1");
 var alertGuessTwo = document.querySelector("#alert-guess-2");
+var alertNanOne = document.querySelector("#alert-nan-1")
+var alertNanTwo = document.querySelector("#alert-nan-2")
 var outputGuessOne = null;
 var outputGuessTwo = null;
 var newMinOutput = null;
@@ -26,7 +28,7 @@ var randomNum = null;
 var newChallengerOneName = null;
 var newChallengerTwoName = null;
 
-updateButton.addEventListener("click", setRange);
+updateButton.addEventListener("click", updateSubmit);
 submitGuessButton.addEventListener("click", handleSubmit);
 submitGuessButton.addEventListener("click", handleSubmitDown);
 resetButton.addEventListener('click', resetGameButton);
@@ -46,9 +48,12 @@ function setRange() {
     maxOutput.innerText = newMaxOutput;
     randomNum = Math.floor(Math.random() * (newMaxOutput - newMinOutput + 1)) + newMinOutput;
     console.log(randomNum);
-
 };
 
+function updateSubmit() {
+    setRange();
+    notE(alertNanOne, alertNanTwo, 'alert-warning-popup');
+}
 
 function resetGameButton () {
     document.getElementById('guess-1-form').reset();
@@ -116,6 +121,16 @@ function challengerGuess() {
     outputGuessTwo = parseInt(guessTwo.value);
     document.getElementById("challenger-1-guess-output").innerHTML = outputGuessOne;
     document.getElementById("challenger-2-guess-output").innerHTML = outputGuessTwo;
+};
+
+function notE(location, location2, id) {
+    if(randomNum = Number.isNaN) {
+    location.insertAdjacentHTML('beforeend',`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Not a number!</p>`);
+    location2.insertAdjacentHTML('beforeend',`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Not a number!</p>`);
+    } else {
+        location.innerText = '';
+        location2.innerText = '';
+    }
 };
 
 function emptyFieldAlert (input, location, id) {
