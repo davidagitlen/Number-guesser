@@ -141,10 +141,10 @@ function emptyGuessAlert (input, location, id) {
 };
 
 function rangeErrorOne (input, location, id) {
-    if (parseInt(input.value) < newMinOutput && location.innerText === '') {
+    if (parseInt(input.value) < newMinOutput) {
     console.log('iferrortop1')
     location.insertAdjacentHTML('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img">Outside range!</p>`);
-  } if (parseInt(input.value) > newMaxOutput && location.innerText === '') {
+  } else if (parseInt(input.value) > newMaxOutput) {
     console.log('iferrortop2')
     location.insertAdjacentHTML ('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Outside range!</p>`)
     } else {
@@ -154,9 +154,9 @@ function rangeErrorOne (input, location, id) {
 };
 
 function rangeErrorTwo (input, location, id) {
-    if (parseInt(input.value) < newMinOutput && location.innerText === '') {
+    if (parseInt(input.value) < newMinOutput) {
     location.insertAdjacentHTML('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img">Outside range!</p>`);
-  } if (parseInt(input.value) > newMaxOutput && location.innerText === '') {
+  } else if (parseInt(input.value) > newMaxOutput) {
     location.insertAdjacentHTML ('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Outside range!</p>`)
     } else {
          console.log('error2')
