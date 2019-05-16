@@ -18,8 +18,8 @@ var alertWarningOne = document.querySelector("#alert-warning-1");
 var alertWarningTwo = document.querySelector("#alert-warning-2");
 var alertGuessOne = document.querySelector("#alert-guess-1");
 var alertGuessTwo = document.querySelector("#alert-guess-2");
-var alertNanOne = document.querySelector("#alert-nan-1")
-var alertNanTwo = document.querySelector("#alert-nan-2")
+// var alertNanOne = document.querySelector("#alert-nan-1");
+// var alertNanTwo = document.querySelector("#alert-nan-2");
 var outputGuessOne = null;
 var outputGuessTwo = null;
 var newMinOutput = null;
@@ -30,10 +30,9 @@ var newChallengerTwoName = null;
 
 updateButton.addEventListener("click", updateSubmit);
 submitGuessButton.addEventListener("click", handleSubmit);
-submitGuessButton.addEventListener("click", handleSubmitDown);
+submitGuessButton.addEventListener("mousedown", handleSubmitDown);
 resetButton.addEventListener('click', resetGameButton);
 clearButton.addEventListener('click', clearChallengerForm);
-
 minInput.addEventListener('keyup', enableClearButton);
 maxInput.addEventListener('keyup', enableClearButton);
 challengerOneName.addEventListener('keyup', enableClearButton);
@@ -52,8 +51,8 @@ function setRange() {
 
 function updateSubmit() {
     setRange();
-    notE(alertNanOne, alertNanTwo, 'alert-warning-popup');
-}
+    // notE(alertNanOne, alertNanTwo, 'alert-warning-popup');
+};
 
 function resetGameButton () {
     document.getElementById('guess-1-form').reset();
@@ -71,22 +70,24 @@ function clearChallengerForm () {
 };
 
 function handleSubmit() {
+    console.log('click')
     challengerNames();
     challengerGuess();
     challengerOneCompareNumbers();
     challengerTwoCompareNumbers();
     enableClearButton();
-    // highLowError(guessTwo, alertGuessTwo, 'alert-warning-popup');
-};
-
-function handleSubmitDown(){
-    emptyFieldAlert(challengerOneName, alertWarningOne, 'alert-warning-popup');
-    emptyGuessAlert(guessOne, alertGuessOne, 'alert-warning-popup');
-    emptyFieldAlert(challengerTwoName, alertWarningTwo, 'alert-warning-popup');
-    emptyGuessAlert(guessTwo, alertGuessTwo, 'alert-warning-popup');
     rangeErrorOne(guessOne, alertGuessOne, 'alert-warning-popup');
     rangeErrorTwo(guessTwo, alertGuessTwo, 'alert-warning-popup');
 };
+
+function handleSubmitDown(){
+    console.log('down')
+    emptyFieldAlert(challengerOneName, alertWarningOne, 'alert-warning-popup');
+    emptyFieldAlert(challengerTwoName, alertWarningTwo, 'alert-warning-popup');
+    emptyGuessAlert(guessOne, alertGuessOne, 'alert-warning-popup');
+    emptyGuessAlert(guessTwo, alertGuessTwo, 'alert-warning-popup');
+};
+
 
 function enableClearButton() {
     var inputFields = [
@@ -123,17 +124,7 @@ function challengerGuess() {
     document.getElementById("challenger-2-guess-output").innerHTML = outputGuessTwo;
 };
 
-function notE(location, location2, id) {
-    if(randomNum = Number.isNaN) {
-    location.insertAdjacentHTML('beforeend',`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Not a number!</p>`);
-    location2.insertAdjacentHTML('beforeend',`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Not a number!</p>`);
-    } else {
-        location.innerText = '';
-        location2.innerText = '';
-    }
-};
-
-function emptyFieldAlert (input, location, id) {
+function emptyFieldAlert(input, location, id) {
     if  (input.value === '' && location.innerText === ''){
     location.insertAdjacentHTML('beforeend',`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Please enter a name!</p>`);
   } else if (input.value !== '' && location.innerText !== '') {
@@ -149,13 +140,15 @@ function emptyGuessAlert (input, location, id) {
   }
 };
 
-
 function rangeErrorOne (input, location, id) {
     if (parseInt(input.value) < newMinOutput && location.innerText === '') {
+    console.log('iferrortop1')
     location.insertAdjacentHTML('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img">Outside range!</p>`);
-  } else if (parseInt(input.value) > newMaxOutput && location.innerText === '') {
+  } if (parseInt(input.value) > newMaxOutput && location.innerText === '') {
+    console.log('iferrortop2')
     location.insertAdjacentHTML ('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Outside range!</p>`)
     } else {
+        console.log('error1')
         location.innerText = '';
   }
 };
@@ -163,23 +156,13 @@ function rangeErrorOne (input, location, id) {
 function rangeErrorTwo (input, location, id) {
     if (parseInt(input.value) < newMinOutput && location.innerText === '') {
     location.insertAdjacentHTML('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img">Outside range!</p>`);
-  } else if (parseInt(input.value) > newMaxOutput && location.innerText === '') {
+  } if (parseInt(input.value) > newMaxOutput && location.innerText === '') {
     location.insertAdjacentHTML ('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Outside range!</p>`)
     } else {
+         console.log('error2')
         location.innerText = '';
   }
 };
-// function highLowError (input, location, id) {
-//     var inputValue = parseInt(input.value);
-//     if (inputValue < newMinOutput) { 
-//         location.insertAdjacentHTML('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img">Outside range!</p>`);
-//   } else if (inputValue > newMaxOutput) {
-//      location.insertAdjacentHTML ('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Outside range!</p>`)
-//        }else {
-//     var removeWarning = document.getElementById(id);
-//         removeWarning.remove();
-//   }
-// };
 
 function challengerOneCompareNumbers() {
     if (outputGuessOne > randomNum) {
@@ -201,8 +184,6 @@ function challengerOneCompareNumbers() {
     };
 };
 
-
-
 function challengerTwoCompareNumbers() {
     if (outputGuessTwo > randomNum) {
         document.getElementById("challenger-2-result-message").innerHTML = tooHighMessage;
@@ -222,3 +203,13 @@ function challengerTwoCompareNumbers() {
                 </article>`);
     };
 };
+
+// function notE(location, location2, id) {
+//     if(randomNum = Number.isNaN) {
+//     location.insertAdjacentHTML('beforeend',`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Not a number!</p>`);
+//     location2.insertAdjacentHTML('beforeend',`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Not a number!</p>`);
+//     } else {
+//         location.innerText = '';
+//         location2.innerText = '';
+//     }
+// };
