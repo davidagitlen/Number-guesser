@@ -10,6 +10,7 @@ var guessTwo = document.querySelector('#challenger-2-guess');
 var submitGuessButton = document.querySelector('#submit-guess-button');
 var clearButton = document.querySelector('#clear-button');
 var resetButton = document.querySelector('#reset-button');
+
 var rightSectionContainer = document.querySelector('#right-section');
 var alertWarningOne = document.querySelector('#alert-warning-1');
 var alertWarningTwo = document.querySelector('#alert-warning-2');
@@ -20,6 +21,7 @@ var alertNanTwo = document.querySelector('#alert-nan-2');
 var tooHighMessage = 'That\'s too high!';
 var tooLowMessage = 'That\'s too low!';
 var goldilocksMessage = 'Boom!';
+
 var outputGuessOne = null;
 var outputGuessTwo = null;
 var newMinOutput = null;
@@ -28,9 +30,11 @@ var randomNum = null;
 var newChallengerOneName = null;
 var newChallengerTwoName = null;
 
+
 updateButton.addEventListener('click', updateSubmit);
 submitGuessButton.addEventListener('click', handleSubmit);
 submitGuessButton.addEventListener('click', handleSubmitDown);
+
 resetButton.addEventListener('click', resetGameButton);
 clearButton.addEventListener('click', clearChallengerForm);
 minInput.addEventListener('keyup', enableClearButton);
@@ -49,7 +53,13 @@ function setRange() {
     console.log(randomNum);
 };
 
-function resetGameButton() {
+
+function updateSubmit() {
+    setRange();
+    notE(alertNanOne, alertNanTwo, 'alert-warning-popup');
+}
+
+function resetGameButton () {
     document.getElementById('guess-1-form').reset();
     document.getElementById('guess-2-form').reset();
     setRange();
@@ -119,6 +129,16 @@ function challengerGuess() {
     outputGuessTwo = parseInt(guessTwo.value);
     document.getElementById('challenger-1-guess-output').innerHTML = outputGuessOne;
     document.getElementById('challenger-2-guess-output').innerHTML = outputGuessTwo;
+};
+
+function notE(location, location2, id) {
+    if(randomNum = Number.isNaN) {
+    location.insertAdjacentHTML('beforeend',`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Not a number!</p>`);
+    location2.insertAdjacentHTML('beforeend',`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Not a number!</p>`);
+    } else {
+        location.innerText = '';
+        location2.innerText = '';
+    }
 };
 
 function emptyFieldAlert (input, location, id) {
