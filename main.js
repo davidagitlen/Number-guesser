@@ -1,27 +1,25 @@
-var minInput = document.querySelector('#min-input-field');
-var maxInput = document.querySelector('#max-input-field');
-var minOutput = document.querySelector('#min-output');
-var maxOutput = document.querySelector('#max-output');
-var updateButton = document.querySelector('#update-button');
-var challengerOneName = document.querySelector('#challenger-1-name');
-var challengerTwoName = document.querySelector('#challenger-2-name');
-var guessOne = document.querySelector('#challenger-1-guess');
-var guessTwo = document.querySelector('#challenger-2-guess');
-var submitGuessButton = document.querySelector('#submit-guess-button');
+var minInput = document.querySelector("#min-input-field");
+var maxInput = document.querySelector("#max-input-field");
+var minOutput = document.querySelector("#min-output");
+var maxOutput = document.querySelector("#max-output");
+var updateButton = document.querySelector("#update-button");
+var challengerOneName = document.querySelector("#challenger-1-name");
+var challengerTwoName = document.querySelector("#challenger-2-name");
+var guessOne = document.querySelector("#challenger-1-guess");
+var guessTwo = document.querySelector("#challenger-2-guess");
+var submitGuessButton = document.querySelector("#submit-guess-button");
 var clearButton = document.querySelector('#clear-button');
 var resetButton = document.querySelector('#reset-button');
-
-var rightSectionContainer = document.querySelector('#right-section');
-var alertWarningOne = document.querySelector('#alert-warning-1');
-var alertWarningTwo = document.querySelector('#alert-warning-2');
-var alertGuessOne = document.querySelector('#alert-guess-1');
-var alertGuessTwo = document.querySelector('#alert-guess-2');
-var alertNanOne = document.querySelector('#alert-nan-1');
-var alertNanTwo = document.querySelector('#alert-nan-2');
-var tooHighMessage = 'That\'s too high!';
-var tooLowMessage = 'That\'s too low!';
-var goldilocksMessage = 'Boom!';
-
+var rightSectionContainer = document.querySelector("#right-section");
+var tooHighMessage = "That's too high!";
+var tooLowMessage = "That's too low!";
+var goldilocksMessage = "Boom!";
+var alertWarningOne = document.querySelector("#alert-warning-1");
+var alertWarningTwo = document.querySelector("#alert-warning-2");
+var alertGuessOne = document.querySelector("#alert-guess-1");
+var alertGuessTwo = document.querySelector("#alert-guess-2");
+var alertNanOne = document.querySelector("#alert-nan-1")
+var alertNanTwo = document.querySelector("#alert-nan-2")
 var outputGuessOne = null;
 var outputGuessTwo = null;
 var newMinOutput = null;
@@ -30,13 +28,12 @@ var randomNum = null;
 var newChallengerOneName = null;
 var newChallengerTwoName = null;
 
-
-updateButton.addEventListener('click', updateSubmit);
-submitGuessButton.addEventListener('click', handleSubmit);
-submitGuessButton.addEventListener('click', handleSubmitDown);
-
+updateButton.addEventListener("click", updateSubmit);
+submitGuessButton.addEventListener("click", handleSubmit);
+submitGuessButton.addEventListener("click", handleSubmitDown);
 resetButton.addEventListener('click', resetGameButton);
 clearButton.addEventListener('click', clearChallengerForm);
+
 minInput.addEventListener('keyup', enableClearButton);
 maxInput.addEventListener('keyup', enableClearButton);
 challengerOneName.addEventListener('keyup', enableClearButton);
@@ -53,7 +50,6 @@ function setRange() {
     console.log(randomNum);
 };
 
-
 function updateSubmit() {
     setRange();
     notE(alertNanOne, alertNanTwo, 'alert-warning-popup');
@@ -65,7 +61,7 @@ function resetGameButton () {
     setRange();
 };
 
-function clearChallengerForm() {
+function clearChallengerForm () {
   document.getElementById('challenger-1-form').reset();
   document.getElementById('challenger-2-form').reset();
   document.getElementById('min-range-form').reset();
@@ -74,17 +70,13 @@ function clearChallengerForm() {
   document.getElementById('guess-2-form').reset();
 };
 
-function updateSubmit() {
-    setRange();
-    notE();
-};
-
 function handleSubmit() {
     challengerNames();
     challengerGuess();
     challengerOneCompareNumbers();
     challengerTwoCompareNumbers();
     enableClearButton();
+    // highLowError(guessTwo, alertGuessTwo, 'alert-warning-popup');
 };
 
 function handleSubmitDown(){
@@ -113,22 +105,22 @@ function enableClearButton() {
         } else {
             clearButton.disabled = false;
             resetButton.disabled = false;
-        }
-    }
+        };
+    };
 };
 
 function challengerNames() {
     newChallengerOneName = challengerOneName.value;
     newChallengerTwoName = challengerTwoName.value;
-    document.getElementById('change-challenger-one-name').innerHTML = newChallengerOneName;
-    document.getElementById('change-challenger-two-name').innerHTML = newChallengerTwoName;
+    document.getElementById("change-challenger-one-name").innerHTML = newChallengerOneName;
+    document.getElementById("change-challenger-two-name").innerHTML = newChallengerTwoName;
 };
 
 function challengerGuess() {
     outputGuessOne = parseInt(guessOne.value);
     outputGuessTwo = parseInt(guessTwo.value);
-    document.getElementById('challenger-1-guess-output').innerHTML = outputGuessOne;
-    document.getElementById('challenger-2-guess-output').innerHTML = outputGuessTwo;
+    document.getElementById("challenger-1-guess-output").innerHTML = outputGuessOne;
+    document.getElementById("challenger-2-guess-output").innerHTML = outputGuessTwo;
 };
 
 function notE(location, location2, id) {
@@ -157,6 +149,7 @@ function emptyGuessAlert (input, location, id) {
   }
 };
 
+
 function rangeErrorOne (input, location, id) {
     if (parseInt(input.value) < newMinOutput && location.innerText === '') {
     location.insertAdjacentHTML('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img">Outside range!</p>`);
@@ -176,14 +169,25 @@ function rangeErrorTwo (input, location, id) {
         location.innerText = '';
   }
 };
+// function highLowError (input, location, id) {
+//     var inputValue = parseInt(input.value);
+//     if (inputValue < newMinOutput) { 
+//         location.insertAdjacentHTML('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img">Outside range!</p>`);
+//   } else if (inputValue > newMaxOutput) {
+//      location.insertAdjacentHTML ('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Outside range!</p>`)
+//        }else {
+//     var removeWarning = document.getElementById(id);
+//         removeWarning.remove();
+//   }
+// };
 
 function challengerOneCompareNumbers() {
     if (outputGuessOne > randomNum) {
-        document.getElementById('challenger-1-result-message').innerHTML = tooHighMessage;
+        document.getElementById("challenger-1-result-message").innerHTML = tooHighMessage;
     } else if (outputGuessOne < randomNum) {
-        document.getElementById('challenger-1-result-message').innerHTML = tooLowMessage;
+        document.getElementById("challenger-1-result-message").innerHTML = tooLowMessage;
     } else if (outputGuessOne === randomNum) {
-        document.getElementById('challenger-1-result-message').innerHTML = goldilocksMessage; 
+        document.getElementById("challenger-1-result-message").innerHTML = goldilocksMessage; 
         rightSectionContainer.insertAdjacentHTML('afterbegin', `<article class="proto-winner-card">  
                 <div class="proto-winner-card-top">
                 <span class="challenger-1-name challenger-1-name-output">${newChallengerOneName}</span> 
@@ -194,16 +198,18 @@ function challengerOneCompareNumbers() {
                 <span class="winner-number-of-guesses"></span>GUESSES<span class="winner-time-spent">
                 </span>MINUTES<button type=button class="close-winner-card-button">X</button></div>
                 </article>`);
-    }
+    };
 };
+
+
 
 function challengerTwoCompareNumbers() {
     if (outputGuessTwo > randomNum) {
-        document.getElementById('challenger-2-result-message').innerHTML = tooHighMessage;
+        document.getElementById("challenger-2-result-message").innerHTML = tooHighMessage;
     } else if (outputGuessTwo < randomNum) {
-        document.getElementById('challenger-2-result-message').innerHTML = tooLowMessage;
+        document.getElementById("challenger-2-result-message").innerHTML = tooLowMessage;
     } else if (outputGuessTwo === randomNum) {
-        document.getElementById('challenger-2-result-message').innerHTML = goldilocksMessage;
+        document.getElementById("challenger-2-result-message").innerHTML = goldilocksMessage;
         rightSectionContainer.insertAdjacentHTML('afterbegin', `<article class="proto-winner-card">  
                 <div class="proto-winner-card-top">
                 <span class="challenger-1-name challenger-1-name-output">${newChallengerOneName}</span> 
@@ -214,5 +220,5 @@ function challengerTwoCompareNumbers() {
                 <span class="winner-number-of-guesses"></span>GUESSES<span class="winner-time-spent">
                 </span>MINUTES<button type=button class="close-winner-card-button">X</button></div>
                 </article>`);
-    }
+    };
 };
