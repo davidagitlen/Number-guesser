@@ -17,12 +17,13 @@
 							<p class="set-range">Set Range</p>
 							<p class="min-range-text">Min Range</p>
 							<input type="number" pattern = "[0-9]" name="min-number" class="min-range min-range-input" id="min-input-field">
-							<div></div>
+							<div id="alert-nan-1"></div>
 						</form>
 							<div class="minError"></div>
 						<form class="max-range-form" id="max-range-form">
 							<p class="max-range-text">Max Range</p>
 							<input type="number" pattern = "[0-9]" name="max-number" class="max-range max-range-input" id="max-input-field">
+							<div id="alert-nan-2"></div>
 						</form>
 						<button type="button" class="update-button" id="update-button">Update</button>
 			</article>
@@ -60,7 +61,7 @@
 				<div class="score-results">
 					<div class="latest-score-container">
 					<p class="latest-score-text">Latest Score</p>
-						<p class="challenger-1-name" id="change-challenger-one-name">Challenger 1 Name</p>
+						<p class="challenger-1-name change-challenger-one-name" id="change-challenger-one-name">Challenger 1 Name</p>
 						<p class="current-guess-text">current guess</p>
 						<output class="challenger-1-guess" id="challenger-1-guess-output" name="challenger-1-guess challenger-1-guess-output">#</output>
 						<p class="challenger-1-result-message" id="challenger-1-result-message"></p>
