@@ -18,8 +18,6 @@ var alertWarningOne = document.querySelector("#alert-warning-1");
 var alertWarningTwo = document.querySelector("#alert-warning-2");
 var alertGuessOne = document.querySelector("#alert-guess-1");
 var alertGuessTwo = document.querySelector("#alert-guess-2");
-// var alertNanOne = document.querySelector("#alert-nan-1");
-// var alertNanTwo = document.querySelector("#alert-nan-2");
 
 var outputGuessOne = null;
 var outputGuessTwo = null;
@@ -31,7 +29,7 @@ var newChallengerTwoName = null;
 
 updateButton.addEventListener("click", setRange);
 submitGuessButton.addEventListener("click", handleSubmit);
-submitGuessButton.addEventListener("mousedown", handleSubmitDown);
+submitGuessButton.addEventListener("click", handleSubmitDown);
 resetButton.addEventListener('click', resetGameButton);
 clearButton.addEventListener('click', clearChallengerForm);
 minInput.addEventListener('keyup', enableClearButton);
@@ -54,7 +52,6 @@ function setRange() {
 
 function updateSubmit() {
     setRange();
-    // notE(alertNanOne, alertNanTwo, 'alert-warning-popup');
 };
 
 
@@ -131,7 +128,7 @@ function challengerGuess() {
 
 function emptyFieldAlert(input, location, id) {
     if  (input.value === '' && location.innerText === ''){
-    location.insertAdjacentHTML('beforeend',`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Please enter a name!</p>`);
+    location.insertAdjacentHTML('beforeend',`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Enter a name!</p>`);
   } else if (input.value !== '' && location.innerText !== '') {
     location.innerText = '';
   }
@@ -139,7 +136,7 @@ function emptyFieldAlert(input, location, id) {
 
 function emptyGuessAlert (input, location, id) {
     if (input.value === '' && location.innerText === '') {
-    location.insertAdjacentHTML('beforeend',`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Please enter a number!</p>`);
+    location.insertAdjacentHTML('beforeend',`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Enter a number!</p>`);
   } else if (input.value !== '' && location.innerText !== '') {
     location.innerText = '';
   }
@@ -208,13 +205,3 @@ function challengerTwoCompareNumbers() {
                 </article>`);
     };
 };
-
-// function notE(location, location2, id) {
-//     if(randomNum = Number.isNaN) {
-//     location.insertAdjacentHTML('beforeend',`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Not a number!</p>`);
-//     location2.insertAdjacentHTML('beforeend',`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Not a number!</p>`);
-//     } else {
-//         location.innerText = '';
-//         location2.innerText = '';
-//     }
-// };
