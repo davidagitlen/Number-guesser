@@ -20,6 +20,7 @@ var alertGuessOne = document.querySelector("#alert-guess-1");
 var alertGuessTwo = document.querySelector("#alert-guess-2");
 // var alertNanOne = document.querySelector("#alert-nan-1");
 // var alertNanTwo = document.querySelector("#alert-nan-2");
+
 var outputGuessOne = null;
 var outputGuessTwo = null;
 var newMinOutput = null;
@@ -28,7 +29,7 @@ var randomNum = null;
 var newChallengerOneName = null;
 var newChallengerTwoName = null;
 
-updateButton.addEventListener("click", updateSubmit);
+updateButton.addEventListener("click", setRange);
 submitGuessButton.addEventListener("click", handleSubmit);
 submitGuessButton.addEventListener("mousedown", handleSubmitDown);
 resetButton.addEventListener('click', resetGameButton);
@@ -47,12 +48,15 @@ function setRange() {
     maxOutput.innerText = newMaxOutput;
     randomNum = Math.floor(Math.random() * (newMaxOutput - newMinOutput + 1)) + newMinOutput;
     console.log(randomNum);
+
 };
+
 
 function updateSubmit() {
     setRange();
     // notE(alertNanOne, alertNanTwo, 'alert-warning-popup');
 };
+
 
 function resetGameButton () {
     document.getElementById('guess-1-form').reset();
@@ -123,6 +127,7 @@ function challengerGuess() {
     document.getElementById("challenger-1-guess-output").innerHTML = outputGuessOne;
     document.getElementById("challenger-2-guess-output").innerHTML = outputGuessTwo;
 };
+
 
 function emptyFieldAlert(input, location, id) {
     if  (input.value === '' && location.innerText === ''){
