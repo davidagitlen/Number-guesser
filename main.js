@@ -1,24 +1,23 @@
-var minInput = document.querySelector("#min-input-field");
-var maxInput = document.querySelector("#max-input-field");
-var minOutput = document.querySelector("#min-output");
-var maxOutput = document.querySelector("#max-output");
-var updateButton = document.querySelector("#update-button");
-var challengerOneName = document.querySelector("#challenger-1-name");
-var challengerTwoName = document.querySelector("#challenger-2-name");
-var guessOne = document.querySelector("#challenger-1-guess");
-var guessTwo = document.querySelector("#challenger-2-guess");
-var submitGuessButton = document.querySelector("#submit-guess-button");
-var clearButton = document.querySelector('#clear-button');
-var resetButton = document.querySelector('#reset-button');
-var rightSectionContainer = document.querySelector("#right-section");
+var $minInput = $("#min-input-field");
+var $maxInput = $("#max-input-field");
+var $minOutput = $("#min-output");
+var $maxOutput = $("#max-output");
+var $updateButton = $("#update-button");
+var $challengerOneName = $("#challenger-1-name");
+var $challengerTwoName = $("#challenger-2-name");
+var $guessOne = $("#challenger-1-guess");
+var $guessTwo = $("#challenger-2-guess");
+var $submitGuessButton = $("#submit-guess-button");
+var $clearButton = $('#clear-button');
+var $resetButton = $('#reset-button');
+var $rightSectionContainer = $("#right-section");
 var tooHighMessage = "That's too high!";
 var tooLowMessage = "That's too low!";
 var goldilocksMessage = "Boom!";
-var alertWarningOne = document.querySelector("#alert-warning-1");
-var alertWarningTwo = document.querySelector("#alert-warning-2");
-var alertGuessOne = document.querySelector("#alert-guess-1");
-var alertGuessTwo = document.querySelector("#alert-guess-2");
-
+var $alertWarningOne = $("#alert-warning-1");
+var $alertWarningTwo = $("#alert-warning-2");
+var $alertGuessOne = $("#alert-guess-1");
+var $alertGuessTwo = $("#alert-guess-2");
 var outputGuessOne = null;
 var outputGuessTwo = null;
 var newMinOutput = null;
@@ -27,33 +26,32 @@ var randomNum = null;
 var newChallengerOneName = null;
 var newChallengerTwoName = null;
 
-updateButton.addEventListener("click", setRange);
-submitGuessButton.addEventListener("click", handleSubmit);
-submitGuessButton.addEventListener("click", handleSubmitDown);
-resetButton.addEventListener('click', resetGameButton);
-clearButton.addEventListener('click', clearChallengerForm);
-minInput.addEventListener('keyup', enableClearButton);
-maxInput.addEventListener('keyup', enableClearButton);
-challengerOneName.addEventListener('keyup', enableClearButton);
-challengerTwoName.addEventListener('keyup', enableClearButton);
-guessOne.addEventListener('keyup', enableClearButton);
-guessTwo.addEventListener('keyup', enableClearButton);
+$updateButton.on("click", setRange);
+$submitGuessButton.on("click", handleSubmit);
+$submitGuessButton.on("click", handleSubmitDown);
+$resetButton.on('click', resetGameButton);
+$clearButton.on('click', clearChallengerForm);
+$resetButton.on('click', enableClearButton);
+$clearButton.on('click', enableClearButton);
+$minInput.on('keyup', enableClearButton);
+$maxInput.on('keyup', enableClearButton);
+$challengerOneName.on('keyup', enableClearButton);
+$challengerTwoName.on('keyup', enableClearButton);
+$guessOne.on('keyup', enableClearButton);
+$guessTwo.on('keyup', enableClearButton);
 
 function setRange() {
-    newMinOutput = parseInt(minInput.value) ;
-    minOutput.innerText = newMinOutput;
-    newMaxOutput = parseInt(maxInput.value);
-    maxOutput.innerText = newMaxOutput;
+    newMinOutput = parseInt($minInput.val()) ;
+    $minOutput.text(newMinOutput);
+    newMaxOutput = parseInt($maxInput.val());
+    $maxOutput.text(newMaxOutput);
     randomNum = Math.floor(Math.random() * (newMaxOutput - newMinOutput + 1)) + newMinOutput;
     console.log(randomNum);
-
 };
-
 
 function updateSubmit() {
     setRange();
 };
-
 
 function resetGameButton () {
     document.getElementById('guess-1-form').reset();
@@ -71,109 +69,101 @@ function clearChallengerForm () {
 };
 
 function handleSubmit() {
-    console.log('click')
     challengerNames();
     challengerGuess();
     challengerOneCompareNumbers();
     challengerTwoCompareNumbers();
     enableClearButton();
-    rangeErrorOne(guessOne, alertGuessOne, 'alert-warning-popup');
-    rangeErrorTwo(guessTwo, alertGuessTwo, 'alert-warning-popup');
+    rangeErrorOne($guessOne, $alertGuessOne, 'alert-warning-popup');
+    rangeErrorTwo($guessTwo, $alertGuessTwo, 'alert-warning-popup');
 };
 
 function handleSubmitDown(){
-    console.log('down')
-    emptyFieldAlert(challengerOneName, alertWarningOne, 'alert-warning-popup');
-    emptyFieldAlert(challengerTwoName, alertWarningTwo, 'alert-warning-popup');
-    emptyGuessAlert(guessOne, alertGuessOne, 'alert-warning-popup');
-    emptyGuessAlert(guessTwo, alertGuessTwo, 'alert-warning-popup');
+    emptyFieldAlert($challengerOneName, $alertWarningOne, 'alert-warning-popup');
+    emptyFieldAlert($challengerTwoName, $alertWarningTwo, 'alert-warning-popup');
+    emptyGuessAlert($guessOne, $alertGuessOne, 'alert-warning-popup');
+    emptyGuessAlert($guessTwo, $alertGuessTwo, 'alert-warning-popup');
 };
 
 
 function enableClearButton() {
     var inputFields = [
-    minInput.value,
-    maxInput.value,
-    challengerOneName.value,
-    challengerTwoName.value,
-    guessOne.value,
-    guessTwo.value
+    $minInput.val(),
+    $maxInput.val(),
+    $challengerOneName.val(),
+    $challengerTwoName.val(),
+    $guessOne.val(),
+    $guessTwo.val(),
     ];
-    for(var i = 0; i < inputFields.length; i++){
-        if (inputFields[i].length < 1) {
-            clearButton.disabled = true;
-            resetButton.disabled = true;
-            return;
-        } else {
-            clearButton.disabled = false;
-            resetButton.disabled = false;
-        };
+    if (inputFields.includes('')) {
+        $clearButton.prop('disabled', true);
+        $resetButton.prop('disabled', true);
+        return;
+    } else {
+        $clearButton.prop('disabled', false);
+        $resetButton.prop('disabled', false);
     };
 };
 
 function challengerNames() {
-    newChallengerOneName = challengerOneName.value;
-    newChallengerTwoName = challengerTwoName.value;
-    document.getElementById("change-challenger-one-name").innerHTML = newChallengerOneName;
-    document.getElementById("change-challenger-two-name").innerHTML = newChallengerTwoName;
+    newChallengerOneName = $challengerOneName.val();
+    newChallengerTwoName = $challengerTwoName.val();
+    $("#change-challenger-one-name").html(newChallengerOneName);
+    $("#change-challenger-two-name").html(newChallengerTwoName);
 };
 
 function challengerGuess() {
-    outputGuessOne = parseInt(guessOne.value);
-    outputGuessTwo = parseInt(guessTwo.value);
-    document.getElementById("challenger-1-guess-output").innerHTML = outputGuessOne;
-    document.getElementById("challenger-2-guess-output").innerHTML = outputGuessTwo;
+    outputGuessOne = parseInt($guessOne.val());
+    outputGuessTwo = parseInt($guessTwo.val());
+    $("#challenger-1-guess-output").html(outputGuessOne);
+    $("#challenger-2-guess-output").html(outputGuessTwo);
 };
 
 
 function emptyFieldAlert(input, location, id) {
-    if  (input.value === '' && location.innerText === ''){
-    location.insertAdjacentHTML('beforeend',`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Enter a name!</p>`);
-  } else if (input.value !== '' && location.innerText !== '') {
-    location.innerText = '';
+    if  (!input.val() && !location.text()){
+    location.append(`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Enter a name!</p>`);
+  } else if (input.val() !== '' && location.text() !== '') {
+    location.text('');
   }
 };
 
 function emptyGuessAlert (input, location, id) {
-    if (input.value === '' && location.innerText === '') {
-    location.insertAdjacentHTML('beforeend',`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Enter a number!</p>`);
-  } else if (input.value !== '' && location.innerText !== '') {
-    location.innerText = '';
+    if (!input.val() && !location.html()) {
+    location.append(`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Enter a number!</p>`);
+  } else if (input.val() !== '' && location.val() !== '') {
+    location.text('');
   }
 };
 
 function rangeErrorOne (input, location, id) {
-    if (parseInt(input.value) < newMinOutput) {
-    console.log('iferrortop1')
-    location.insertAdjacentHTML('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img">Outside range!</p>`);
-  } else if (parseInt(input.value) > newMaxOutput) {
-    console.log('iferrortop2')
-    location.insertAdjacentHTML ('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Outside range!</p>`)
-    } else {
-        console.log('error1')
-        location.innerText = '';
+    if (parseInt(input.val()) < newMinOutput && !location.html()) {
+    location.append(`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img">Outside range!</p>`);
+    } else if (parseInt(input.val()) > newMaxOutput && !location.html()) {
+    location.append(`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Outside range!</p>`)
+    } else if ((!parseInt(input.val()) && location.html() !== '') || (parseInt(input.val()) <= newMaxOutput && parseInt(input.val()) >= newMinOutput) && location.html() !== '') {
+        location.html('');
   }
 };
 
 function rangeErrorTwo (input, location, id) {
-    if (parseInt(input.value) < newMinOutput) {
-    location.insertAdjacentHTML('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img">Outside range!</p>`);
-  } else if (parseInt(input.value) > newMaxOutput) {
-    location.insertAdjacentHTML ('beforeend', `<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Outside range!</p>`)
-    } else {
-         console.log('error2')
-        location.innerText = '';
+    if (parseInt(input.val()) < newMinOutput && !location.html()) {
+    location.append(`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img">Outside range!</p>`);
+  } else if (parseInt(input.val()) > newMaxOutput && !location.html()) {
+    location.append(`<p class="alert-warning-text" id="${id}"><img src="error-icon.svg" class="alert-warning-img" >Outside range!</p>`)
+    } else if ((!parseInt(input.val()) && location.html() !== '') || (parseInt(input.val()) <= newMaxOutput && parseInt(input.val()) >= newMinOutput) && location.html() !== '') {
+        location.html('');
   }
 };
 
 function challengerOneCompareNumbers() {
     if (outputGuessOne > randomNum) {
-        document.getElementById("challenger-1-result-message").innerHTML = tooHighMessage;
+        $("#challenger-1-result-message").html(tooHighMessage);
     } else if (outputGuessOne < randomNum) {
-        document.getElementById("challenger-1-result-message").innerHTML = tooLowMessage;
+        $("#challenger-1-result-message").html(tooLowMessage);
     } else if (outputGuessOne === randomNum) {
-        document.getElementById("challenger-1-result-message").innerHTML = goldilocksMessage; 
-        rightSectionContainer.insertAdjacentHTML('afterbegin', `<article class="proto-winner-card">  
+        $("#challenger-1-result-message").html(goldilocksMessage); 
+        $rightSectionContainer.append(`<article class="proto-winner-card">  
                 <div class="proto-winner-card-top">
                 <span class="challenger-1-name challenger-1-name-output">${newChallengerOneName}</span> 
                 vs <span class="challenger-2-name challenger-2-name-output">${newChallengerTwoName}</span></div>
@@ -188,12 +178,12 @@ function challengerOneCompareNumbers() {
 
 function challengerTwoCompareNumbers() {
     if (outputGuessTwo > randomNum) {
-        document.getElementById("challenger-2-result-message").innerHTML = tooHighMessage;
+        $("#challenger-2-result-message").html(tooHighMessage);
     } else if (outputGuessTwo < randomNum) {
-        document.getElementById("challenger-2-result-message").innerHTML = tooLowMessage;
+        $("#challenger-2-result-message").html(tooLowMessage);
     } else if (outputGuessTwo === randomNum) {
-        document.getElementById("challenger-2-result-message").innerHTML = goldilocksMessage;
-        rightSectionContainer.insertAdjacentHTML('afterbegin', `<article class="proto-winner-card">  
+        $("#challenger-2-result-message").html(goldilocksMessage);
+        $rightSectionContainer.append( `<article class="proto-winner-card">  
                 <div class="proto-winner-card-top">
                 <span class="challenger-1-name challenger-1-name-output">${newChallengerOneName}</span> 
                 vs <span class="challenger-2-name challenger-2-name-output">${newChallengerTwoName}</span></div>
@@ -201,7 +191,7 @@ function challengerTwoCompareNumbers() {
                 <p class="winner-label">WINNER</p>
                 <div class="proto-winner-card-bottom">
                 <span class="winner-number-of-guesses"></span>GUESSES<span class="winner-time-spent">
-                </span>MINUTES<button type=button class="close-winner-card-button">X</button></div>
+                </span>MINUTES<button type=button class="close-winner-card-button" onclick=">X</button></div>
                 </article>`);
     };
 };
